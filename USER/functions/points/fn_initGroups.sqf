@@ -10,7 +10,7 @@ private _groups = [];
 	private _player = _x;
 
 	//Exclude Zeus
-	//if !() then {
+	if (isNull (getAssignedCuratorLogic _player)) then {
 		
 		//Structur groups
 		private _bool = false;
@@ -27,7 +27,7 @@ private _groups = [];
 		if !(_bool) then {
 			_groups pushBack [(groupId group _player), [_player]];
 		};
-	//}
+	};
 }forEach allPlayers;
 
 missionNamespace setVariable ["grad_user_groups", _groups];
