@@ -48,4 +48,23 @@ class grad_grandPrix
 		class showResults {};
 		class showStages {};
 	};
+
+	class Kunstflug {
+		file = "USER\functions\Kunstflug";
+		class initKunstflugStation {};
+		class startKunstflugCourse {};
+		class manageKunstflugTargets {};
+		class manageKunstflugEnd {};
+		class manageKunstflugGates {};
+	}
+
+	class DemolitionDart {
+		file = "USER\functions\DemolitionDart";
+		class DemolitionDart_initStation {};
+		class DemolitionDart_prepareStation {};
+		class DemolitionDart_startStation {};
+		class DemolitionDart_endStation {};
+		class DemolitionDart_assignSpectator {};
+		class DemolitionDart_assignDriver {};
+	};		
 };

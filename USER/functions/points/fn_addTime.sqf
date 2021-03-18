@@ -28,3 +28,5 @@ if (_time <= _bestTime) then {
 _points = round _points;
 
 [_group, _points, _stage] call grad_user_points_fnc_addPoints;
+
+_points
