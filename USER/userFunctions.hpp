@@ -45,7 +45,7 @@ class grad_grandPrix
 		class addTime {};
 		class getGroup {};
 		class initGroups {};
-		class showResults {};
+		class showResult {};
 		class showStages {};
 	};
 
