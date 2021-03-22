@@ -19,7 +19,6 @@ class grad_grandPrix
 		class gottesFinger_prepNextPosition {};
 		class gottesFinger_start {};
   	};
-	/*
 	class race
 	{
 		file = "USER\functions\race";
@@ -38,7 +37,6 @@ class grad_grandPrix
 		class plankGroupResult {};
 		class portToCarrier {};
 	};
-	*/
 	class points {
 		file = "USER\functions\points";
 		class addPoints {};
