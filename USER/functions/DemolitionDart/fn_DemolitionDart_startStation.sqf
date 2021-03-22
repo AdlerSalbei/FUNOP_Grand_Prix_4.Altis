@@ -23,7 +23,7 @@ private _allDrivers = [];
 		case "SPECTATOR": {
 			private _pos = selectRandom _allOverwatchPositions;
 			_allOverwatchPositions deleteAt (_allOverwatchPositions find _pos);
-			_x setPos (getPos _pos);
+			_x setPosASL (getPosASL _pos);
 		};
 		case "DRIVER": {
 			_allDrivers pushBackUnique _x;
@@ -42,6 +42,8 @@ for [{_i=1;}, {_i<=5}, {_i=_i+1;}] do {
 	clearItemCargoGlobal _vehicle;
 	clearMagazineCargoGlobal _vehicle;
 	clearWeaponCargoGlobal _vehicle;
+
+	sleep 0.2;
 
 	{
 		private _pos = (_vehicle getRelPos [8, 0]) findEmptyPosition [0, 3.9, typeOf _x];
@@ -84,7 +86,7 @@ for [{_i=1;}, {_i<=5}, {_i=_i+1;}] do {
 		moveOut (_x#0);
 	} forEach (fullCrew _vehicle);
 
-	sleep 0.1;
+	sleep 0.3;
 
 	deleteVehicle _vehicle;
 

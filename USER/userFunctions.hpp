@@ -56,6 +56,7 @@ class grad_grandPrix
 		class manageKunstflugTargets {};
 		class manageKunstflugEnd {};
 		class manageKunstflugGates {};
+		class stopKunstflugCourse {};
 	}
 
 	class DemolitionDart {

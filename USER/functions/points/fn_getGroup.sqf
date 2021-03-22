@@ -1,4 +1,4 @@
-if !(isServer) exitWith {_this remoteExecCall ["grad_user_points_fnc_getGroup", 2];};
+if !(isServer) exitWith {_this remoteExecCall ["grad_grandPrix_fnc_getGroup", 2];};
 
 params ["_group"];
 
@@ -14,7 +14,7 @@ private _return = nil;
 		_return = _group;
 	};
 
-	if (group leader in _member) exitWith {
+	if (leader _group  in _member) exitWith {
 		_return = _name;
 	};
 }forEach _groups;

@@ -1,4 +1,4 @@
-if !(isServer) exitWith {_this remoteExecCall ["grad_user_points_fnc_addTime", 2];};
+if !(isServer) exitWith {_this remoteExecCall ["grad_grandPrix_points_fnc_addTime", 2];};
 
 params ["_group", "_time", "_bestTime", "_maxPoints", "_stage", ["_worstTime", -1]];
 
@@ -27,6 +27,6 @@ if (_time <= _bestTime) then {
 
 _points = round _points;
 
-[_group, _points, _stage] call grad_user_points_fnc_addPoints;
+[_group, _points, _stage] call grad_grandPrix_fnc_addPoints;
 
 _points

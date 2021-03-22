@@ -31,7 +31,7 @@ clearBackpackCargoGlobal _vehicle;
 clearItemCargoGlobal _vehicle;
 clearMagazineCargoGlobal _vehicle;
 clearWeaponCargoGlobal _vehicle;
-_vehicle addMagazineCargoGlobal ["rhsgref_296Rnd_792x57_SmK_alltracers_belt", 10];
+// _vehicle addMagazineCargoGlobal ["rhsgref_296Rnd_792x57_SmK_alltracers_belt", 10];
 
 {
 	_x setVariable ["GRAD_Kunstflug_savedLoadout", getUnitLoadout _x, true];
@@ -42,10 +42,10 @@ _vehicle addMagazineCargoGlobal ["rhsgref_296Rnd_792x57_SmK_alltracers_belt", 10
 
 	_x addVest "V_Safety_orange_F";
 	_x addHeadgear "H_Construction_earprot_orange_F";
-	[_x, "B_Messenger_IDAP_F"] remoteExec ["addBackpack", _x];
-	[_x, "hlc_lmg_mg42kws_b"] remoteExec ["addWeapon", _x];
-	[_x, "rhsgref_296Rnd_792x57_SmK_alltracers_belt"] remoteExec ["addPrimaryWeaponItem", _x];
-	[_x, "rhsgref_296Rnd_792x57_SmK_alltracers_belt"] remoteExec ["addMagazine", _x];
+	// [_x, "B_Messenger_IDAP_F"] remoteExec ["addBackpack", _x];
+	[_x, "GrandPrix_LMG_Zafir_F"] remoteExec ["addWeapon", _x];
+	[_x, "10000Rnd_762x54_Box_Tracer"] remoteExec ["addPrimaryWeaponItem", _x];
+	// [_x, "rhsgref_296Rnd_792x57_SmK_alltracers_belt"] remoteExec ["addMagazine", _x];
 
 } forEach (units _group);
 
@@ -64,7 +64,7 @@ private _handle = [{
 
 ["Die Zeit läuft!"] remoteExec ["hintSilent",(units _group) + [_nearestInstructor]];
 
-[_group, _vehicle] spawn GRAD_GrandPrix_fnc_manageKunstflugGates;
+[_group, _vehicle, _station] spawn GRAD_GrandPrix_fnc_manageKunstflugGates;
 missionNamespace setVariable ["GRAD_KunstflugCurrentGroup", _group, true];
 [_group] spawn GRAD_grandPrix_fnc_manageKunstflugTargets;
 

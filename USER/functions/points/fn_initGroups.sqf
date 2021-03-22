@@ -1,7 +1,7 @@
 if !(isServer) exitWith {};
 
 if (serverTime < 60) exitWith {
-	[{[] call grad_user_points_fnc_initGroup}, [], 60] call CBA_fnc_waitAndExecute;
+	[{[] call grad_grandPrix_fnc_initGroup}, [], 60] call CBA_fnc_waitAndExecute;
 };
 
 private _groups = [];

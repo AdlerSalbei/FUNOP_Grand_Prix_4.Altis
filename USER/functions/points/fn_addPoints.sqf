@@ -1,8 +1,8 @@
-if !(isServer) exitWith {_this remoteExecCall ["grad_user_points_fnc_addPoints", 2];};
+if !(isServer) exitWith {_this remoteExecCall ["grad_grandPrix_points_fnc_addPoints", 2];};
 
 params ["_group", "_points", "_stage"];
 
-private _groupName = [_group] call grad_user_points_fnc_getGroup;
+private _groupName = [_group] call grad_grandPrix_fnc_getGroup;
 
 private _groupStats = missionNamespace getVariable [_groupName, []];
 

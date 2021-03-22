@@ -1,4 +1,4 @@
-#define TIME_PER_TARGET 2;
+#define TIME_PER_TARGET 5;
 
 params ["_group", "_vehicle", "_startTime", "_station", "_handle"];
 
@@ -45,7 +45,8 @@ private _allTargets = missionNamespace getVariable ["GRAD_KunstflugTargets", []]
 
 private _targetsHit = _group getVariable ["GRAD_KunstflugTargetsHit", 0];
 private _totalTime = _timeTaken - _targetsHit * TIME_PER_TARGET;
-private _pointsToAdd = [_group, _totalTime, 100, 1000, "Kunstflug"] call grad_grandPrix_fnc_addPoints;
+if (_totalTime < 10) then { _totalTime = 10; };
+private _pointsToAdd = [_group, _totalTime, 10, 1000, "Kunstflug"] call grad_grandPrix_fnc_addTime;
 
 private _result = format[
 	"Eure Flugzeit betrug %1. Dabei habt ihr %2 von %3 Zielen getroffen. Eure Gesamtzeit beträgt also %4. Damit habt ihr euch %5 Punkte erspielt!",
