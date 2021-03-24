@@ -8,7 +8,7 @@ cutText ["", "BLACK", 0.1];
 	params ["_unit"];
 
 	playSound "jumpTPSound";
-	_unit setPos ((getPosATL plankeTP_oben) vectorAdd [(random 6) -4, (random 6) -4, 0]);
+	_unit setPos ((getPosATL tpPlankeDesTodes) vectorAdd [(random 6) -4, (random 6) -4, 0]);
 
 	_unit addBackpack "B_Parachute";
 	_unit linkItem "ACE_Altimeter";
