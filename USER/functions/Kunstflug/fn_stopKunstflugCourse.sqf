@@ -15,6 +15,8 @@ private _allGates = missionNamespace getVariable ["GRAD_KunstflugGates", []];
 
 deleteVehicle _vehicle;
 
+sleep 0.5;
+
 {
 	// Current result is saved in variable _x
 	_x setPos [5253.28,9828.01,0];

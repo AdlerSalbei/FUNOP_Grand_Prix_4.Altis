@@ -41,7 +41,7 @@ private _distance = _vehicle distance (_allInstructors#0);
 } forEach _allGates;
 
 if !(alive _vehicle) exitWith {
-	[_group, _vehicle, _nearestInstructor, _station] call GRAD_GrandPrix_fnc_stopKunstflugCourse;
+	[_group, _vehicle, _nearestInstructor, _station] spawn GRAD_GrandPrix_fnc_stopKunstflugCourse;
 };
 
 ['Alle Tore wurden passiert! Jetzt noch auf dem Heli-Pad landen und den Motor abschalten, dann wird die Uhr gestoppt!'] remoteExec ['hintSilent', (units _group) + [_nearestInstructor]];
