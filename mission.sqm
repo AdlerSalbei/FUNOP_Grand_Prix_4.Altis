@@ -8,11 +8,11 @@ class EditorData
 	toggles=9;
 	class ItemIDProvider
 	{
-		nextID=3391;
+		nextID=3396;
 	};
 	class MarkerIDProvider
 	{
-		nextID=8;
+		nextID=11;
 	};
 	class LayerIndexProvider
 	{
@@ -20,10 +20,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={3856.1479,60.16127,3505.5879};
-		dir[]={0.23157056,-0.52871621,0.81667405};
-		up[]={0.14424305,0.84876728,0.50870001};
-		aside[]={0.96212506,8.5448846e-008,-0.27281553};
+		pos[]={5757.8857,7.7007675,8914.9219};
+		dir[]={-0.47844222,-0.87737662,0.036200389};
+		up[]={-0.87487996,0.47979563,0.066196084};
+		aside[]={0.075448051,2.3690518e-008,0.99715334};
 	};
 };
 binarizationWanted=0;
@@ -6813,7 +6813,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=836;
+		items=840;
 		class Item0
 		{
 			dataType="Layer";
@@ -11760,11 +11760,13 @@ class Mission
 		class Item95
 		{
 			dataType="Marker";
-			position[]={5248.2563,170.31845,9825.665};
+			position[]={5248.2559,170.31799,9825.665};
 			name="marker_7";
 			text="Kunstflug";
 			type="mil_objective";
+			colorName="ColorWEST";
 			id=1592;
+			atlOffset=-0.00045776367;
 		};
 		class Item96
 		{
@@ -56720,6 +56722,7 @@ class Mission
 			name="marker_8";
 			text="Demolition Dart";
 			type="mil_objective";
+			colorName="ColorWEST";
 			id=2803;
 			atlOffset=7.6055527e-005;
 		};
@@ -76853,14 +76856,14 @@ class Mission
 		class Item834
 		{
 			dataType="Marker";
-			position[]={2560.0593,198.52344,4937.5425};
+			position[]={3857.8025,26.93457,3531.7163};
 			name="marker_17";
 			text="Gottes Finger";
 			type="mil_objective";
 			colorName="ColorWEST";
 			angle=97.92028;
 			id=3389;
-			atlOffset=-5.6650391;
+			atlOffset=-8.2440529;
 		};
 		class Item835
 		{
@@ -76900,6 +76903,74 @@ class Mission
 				};
 				nAttributes=1;
 			};
+		};
+		class Item836
+		{
+			dataType="Marker";
+			position[]={5749.249,5.4759998,8952.7881};
+			name="Race";
+			text="Race";
+			type="mil_objective";
+			colorName="ColorWEST";
+			id=3391;
+			atlOffset=-0.0001039505;
+		};
+		class Item837
+		{
+			dataType="Marker";
+			position[]={5087.397,29.066999,5110.9229};
+			name="marker_10";
+			text="Planke des Todes";
+			type="mil_objective";
+			colorName="ColorWEST";
+			id=3392;
+			atlOffset=-0.00012016296;
+		};
+		class Item838
+		{
+			dataType="Trigger";
+			position[]={8496.8271,4.2826915,4114.5308};
+			angle=1.6368325;
+			class Attributes
+			{
+				sizeA=20;
+				sizeC=10;
+				isRectangle=1;
+			};
+			id=3393;
+			type="EmptyDetector";
+			atlOffset=9.5367432e-007;
+		};
+		class Item839
+		{
+			dataType="Group";
+			side="Civilian";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5753.4058,1.6569622,8914.3535};
+						angles[]={0,3.2873702,0};
+					};
+					side="Civilian";
+					flags=3;
+					class Attributes
+					{
+					};
+					id=3395;
+					type="C_Marshal_F";
+					atlOffset=15.720521;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=3394;
+			atlOffset=15.720521;
 		};
 	};
 	class Connections
