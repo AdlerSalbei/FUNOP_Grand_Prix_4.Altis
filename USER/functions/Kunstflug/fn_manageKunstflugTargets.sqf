@@ -27,7 +27,7 @@ _group setVariable ["GRAD_KunstflugTargetsHit", 0, true];
 		private _id = _x addEventHandler ["HitPart", {
 			(_this select 0) params ["_target", "_shooter", "_projectile", "_position", "_velocity", "_selection", "_ammo", "_vector", "_radius", "_surfaceType", "_isDirect"];
 			private _group = missionNamespace getVariable ["GRAD_KunstflugCurrentGroup", []];
-			systemChat format["shooterGroup: %1 | stationGroup: %2", group _shooter, _group];
+			// systemChat format["shooterGroup: %1 | stationGroup: %2", group _shooter, _group];
 			if ((group _shooter) isEqualTo _group) then {
 				// _target removeAllEventHandlers "Hit";
 				[_target, "HitPart"] remoteExec ["removeAllEventHandlers"];

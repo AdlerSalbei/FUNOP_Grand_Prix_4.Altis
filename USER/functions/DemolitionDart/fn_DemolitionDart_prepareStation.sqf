@@ -27,7 +27,7 @@ missionNamespace setVariable ["GRAD_DemolitionDart_allDistances", [], true];
         "Fahrer",
         "",
         { [player] spawn GRAD_GrandPrix_fnc_DemolitionDart_assignDriver; },
-        { !(player getVariable ["GRAD_DemolitionDart_roleChosen", false]) && ((missionNamespace getVariable ["GRAD_DemolitionDart_driverCount", 0]) < ((missionNamespace getVariable ["GRAD_DemolitionDart_playerCount", count (units (missionNamespace getVariable ["GRAD_DemolitionDart_groupPlaying", grpNull]))]) - 1)) }
+        { !(player getVariable ["GRAD_DemolitionDart_roleChosen", false]) && ((missionNamespace getVariable ["GRAD_DemolitionDart_driverCount", 0]) < ((missionNamespace getVariable ["GRAD_DemolitionDart_playerCount", count (units (missionNamespace getVariable ["GRAD_DemolitionDart_groupPlaying", grpNull]))]) - 1)) && ((missionNamespace getVariable ["GRAD_DemolitionDart_driverCount", 0]) < 3) }
     ] call ace_interact_menu_fnc_createAction;
     [_station, 0, [], _action2] call ace_interact_menu_fnc_addActionToObject;
 }] remoteExec ["call", _group];
@@ -38,7 +38,7 @@ missionNamespace setVariable ["GRAD_DemolitionDart_allDistances", [], true];
 private _playerCount = count (units _group);
 waitUntil { ((missionNamespace getVariable ["GRAD_DemolitionDart_driverCount", 0]) + (missionNamespace getVariable ["GRAD_DemolitionDart_spectatorCount", 0])) isEqualTo _playerCount };
 
-[_station, 0, ["Choose_Spectator"]] call ace_interact_menu_fnc_removeActionFromObject;
-[_station, 0, ["Choose_Driver"]] call ace_interact_menu_fnc_removeActionFromObject;
+[_station, 0, ["ACE_MainActions", "Choose_Spectator"]] call ace_interact_menu_fnc_removeActionFromObject;
+[_station, 0, ["ACE_MainActions", "Choose_Driver"]] call ace_interact_menu_fnc_removeActionFromObject;
 
 [_station, _group] call GRAD_GrandPrix_fnc_DemolitionDart_startStation;

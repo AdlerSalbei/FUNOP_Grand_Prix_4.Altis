@@ -40,5 +40,9 @@ private _result = format[
 ];
 
 [_result] remoteExec ["hint", (units _group) + [_nearestInstructor]];
+{
+	// Current result is saved in variable _x
+	[_x, false] remoteExec ["allowDamage", _x];
+} forEach (units _group);
 
 _station setVariable ["stationIsRunning", false, true];

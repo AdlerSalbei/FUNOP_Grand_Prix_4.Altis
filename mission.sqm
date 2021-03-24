@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=398;
+		nextID=410;
 	};
 	class Camera
 	{
-		pos[]={5087.5239,54.160713,5089.6758};
-		dir[]={0.15653062,-0.64487827,0.74808502};
-		up[]={0.13207521,0.76428455,0.63120902};
-		aside[]={0.97880358,-3.6146957e-008,-0.20480655};
+		pos[]={6669.5894,25.865623,2551.6467};
+		dir[]={-0.36974505,-0.067227997,0.92669833};
+		up[]={-0.024913602,0.99773765,0.062441412};
+		aside[]={0.92879975,-7.4505806e-009,0.3705835};
 	};
 };
 binarizationWanted=0;
@@ -9154,7 +9154,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={4664.9897,227.64151,10815.382};
-				angles[]={0,2.268338,0};
+				angles[]={0,1.3499266,0};
 			};
 			side="Empty";
 			class Attributes
@@ -56477,17 +56477,16 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9124.3965,61.223415,1186.9871};
+				position[]={9124.3965,61.367218,1186.9871};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				name="GRAD_DemolitionDart_Overwatch_1";
 			};
 			id=2797;
 			type="Sign_Arrow_Blue_F";
-			atlOffset=0.1623497;
+			atlOffset=0.30615234;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -56517,17 +56516,16 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9124.3604,61.168606,1185.0551};
+				position[]={9124.3604,61.312408,1185.0551};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				name="GRAD_DemolitionDart_Overwatch_3";
 			};
 			id=2798;
 			type="Sign_Arrow_Blue_F";
-			atlOffset=0.10754013;
+			atlOffset=0.25134277;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -56557,7 +56555,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9126.5186,61.149902,1185.137};
+				position[]={9126.5186,61.293705,1185.137};
 			};
 			side="Empty";
 			flags=4;
@@ -56567,7 +56565,7 @@ class Mission
 			};
 			id=2799;
 			type="Sign_Arrow_Blue_F";
-			atlOffset=0.08883667;
+			atlOffset=0.23263931;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -56597,7 +56595,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9126.5518,61.132603,1187.0551};
+				position[]={9126.5518,61.276405,1187.0551};
 			};
 			side="Empty";
 			flags=4;
@@ -56607,7 +56605,7 @@ class Mission
 			};
 			id=2800;
 			type="Sign_Arrow_Blue_F";
-			atlOffset=0.071537018;
+			atlOffset=0.21533966;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -76653,7 +76651,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={8496.8271,4.2826915,4114.5308};
-			angle=1.6368324;
+			angle=1.6368322;
 			class Attributes
 			{
 				sizeA=20;

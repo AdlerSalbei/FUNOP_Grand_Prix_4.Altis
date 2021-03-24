@@ -46,7 +46,7 @@ for [{_i=1;}, {_i<=5}, {_i=_i+1;}] do {
 	sleep 0.2;
 
 	{
-		private _pos = (_vehicle getRelPos [8, 0]) findEmptyPosition [0, 3.9, typeOf _x];
+		private _pos = (_vehicle getRelPos [8, 0]) findEmptyPosition [0, 4, typeOf _x];
 		_x setVelocity [0,0,0];
 		_x setPos _pos;
 		_x setDir (_x getDir _vehicle);

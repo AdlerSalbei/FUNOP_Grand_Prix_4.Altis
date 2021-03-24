@@ -60,9 +60,14 @@ private _handle = [{
 	} else {
 		[_handle] call CBA_fnc_removePerFrameHandler;
 	};
-}, 1, [_vehicle]] call CBA_fnc_addPerFrameHandler;
+}, 2, [_vehicle]] call CBA_fnc_addPerFrameHandler;
 
 ["Die Zeit läuft!"] remoteExec ["hintSilent",(units _group) + [_nearestInstructor]];
+
+{
+	// Current result is saved in variable _x
+	[_x, false] remoteExec ["allowDamage", _x];
+} forEach (units _group);
 
 [_group, _vehicle, _station] spawn GRAD_GrandPrix_fnc_manageKunstflugGates;
 missionNamespace setVariable ["GRAD_KunstflugCurrentGroup", _group, true];

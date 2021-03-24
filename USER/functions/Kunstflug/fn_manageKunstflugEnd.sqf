@@ -1,4 +1,4 @@
-#define TIME_PER_TARGET 5;
+#define TIME_PER_TARGET 2;
 
 params ["_group", "_vehicle", "_startTime", "_station", "_handle"];
 
@@ -45,15 +45,15 @@ private _allTargets = missionNamespace getVariable ["GRAD_KunstflugTargets", []]
 
 private _targetsHit = _group getVariable ["GRAD_KunstflugTargetsHit", 0];
 private _totalTime = _timeTaken - _targetsHit * TIME_PER_TARGET;
-if (_totalTime < 10) then { _totalTime = 10; };
-private _pointsToAdd = [_group, _totalTime, 10, 1000, "Kunstflug"] call grad_grandPrix_fnc_addTime;
+if (_totalTime < 110) then { _totalTime = 110; };
+private _pointsToAdd = [_group, _totalTime, 110, 1000, "Kunstflug"] call grad_grandPrix_fnc_addTime;
 
 private _result = format[
 	"Eure Flugzeit betrug %1. Dabei habt ihr %2 von %3 Zielen getroffen. Eure Gesamtzeit beträgt also %4. Damit habt ihr euch %5 Punkte erspielt!",
 	[_timeTaken, "MM:SS"] call BIS_fnc_secondsToString,
 	_targetsHit,
 	count _allTargets,
-	[_timeTaken - _targetsHit, "MM:SS"] call BIS_fnc_secondsToString,
+	[_totalTime, "MM:SS"] call BIS_fnc_secondsToString,
 	_pointsToAdd
 ];
 
@@ -71,3 +71,8 @@ _station setVariable ["stationIsRunning", false, true];
 sleep 5;
 [""] remoteExec ["playMusic", (units _group) + [_nearestInstructor]];
 [0, 1] remoteExec ["fadeMusic", (units _group) + [_nearestInstructor]];
+
+{
+	// Current result is saved in variable _x
+	[_x, false] remoteExec ["allowDamage", _x];
+} forEach (units _group);
