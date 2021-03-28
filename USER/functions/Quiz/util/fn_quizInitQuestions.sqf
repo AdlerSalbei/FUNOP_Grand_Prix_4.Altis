@@ -30,53 +30,63 @@ private _allQuestions = [
 	private _occupiedPodiums = missionNamespace getVariable ["GRAD_quizOccupiedPodiums", []];
 	private _numberStr = str _number;
 
-	private _action = [
-		"Start_Question_" + _numberStr,
-		"Start Question " + _numberStr,
-		"",
-		{
-			params ["_target", "_player", "_params"];
-			_params params ["_numberStr"];
-			 missionNamespace setVariable ["GRAD_quizQuestion" + _numberStr + "Active", true, true];
-		},
-		{
-			params ["_target", "_player", "_params"];
-			_params params ["_numberStr"];			
-			!(missionNamespace getVariable ["GRAD_quizQuestion" + _numberStr + "Active", false])
-		},
-		{},
-		[_numberStr]
-	] call ace_interact_menu_fnc_createAction;
-	[_station, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
+	[[_numberStr, _station], {
+		params ["_numberStr", "_station"];
+		private _action = [
+			"Start_Question_" + _numberStr,
+			"Start Question " + _numberStr,
+			"",
+			{
+				params ["_target", "_player", "_params"];
+				_params params ["_numberStr"];
+				missionNamespace setVariable ["GRAD_quizQuestion" + _numberStr + "Active", true, true];
+			},
+			{
+				params ["_target", "_player", "_params"];
+				_params params ["_numberStr"];			
+				!(missionNamespace getVariable ["GRAD_quizQuestion" + _numberStr + "Active", false])
+			},
+			{},
+			[_numberStr]
+		] call ace_interact_menu_fnc_createAction;
+		[_station, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
+	}] remoteExec ["call", _moderator];
 
 	waitUntil { missionNamespace getVariable ["GRAD_quizQuestion" + _numberStr + "Active", false] };
 
 	{
-		private _action = [
-			"Question_" + _numberStr,
-			"Frage " + _numberStr,
-			"",
-			{
-				params ["_target", "_player", "_params"];
-				_params params ["_question", "_number", "_type", "_unit", "_numberStr", "_answer"];
-				if (count _type isEqualTo 1) then {
-					[_question, _number, _type#0, _unit, _answer] spawn GRAD_GrandPrix_fnc_quizCreateEditQuestionDisplay;
-				} else {
-					[_question, _number, _type, _unit, _answer] spawn GRAD_GrandPrix_fnc_quizCreateChoiceQuestionDisplay;
-				};
-			},
-			{
-				params ["_target", "_player", "_params"];
-				_params params ["_question", "_number", "_type", "_unit", "_numberStr"];
-				(missionNamespace getVariable ["GRAD_quizQuestionActive", -1] isEqualTo _number)
-			},
-			{},
-			[_question, _number, _type, _unit, _numberStr, _answer]
-		] call ace_interact_menu_fnc_createAction;
-		[_x, 0, [], _action] call ace_interact_menu_fnc_addActionToObject;
+		private _podium = _x;
+		[[_question, _number, _type, _unit, _numberStr, _answer, _podium], {
+			params ["_question", "_number", "_type", "_unit", "_numberStr", "_answer", "_podium"];
+			private _action = [
+				"Question_" + _numberStr,
+				"Frage " + _numberStr,
+				"",
+				{
+					params ["_target", "_player", "_params"];
+					_params params ["_question", "_number", "_type", "_unit", "_numberStr", "_answer"];
+					if (count _type isEqualTo 1) then {
+						[_question, _number, _type#0, _unit, _answer] spawn GRAD_GrandPrix_fnc_quizCreateEditQuestionDisplay;
+					} else {
+						[_question, _number, _type, _unit, _answer] spawn GRAD_GrandPrix_fnc_quizCreateChoiceQuestionDisplay;
+					};
+				},
+				{
+					params ["_target", "_player", "_params"];
+					_params params ["_question", "_number", "_type", "_unit", "_numberStr"];
+					(missionNamespace getVariable ["GRAD_quizQuestionActive", -1] isEqualTo _number)
+				},
+				{},
+				[_question, _number, _type, _unit, _numberStr, _answer]
+			] call ace_interact_menu_fnc_createAction;
+			[_podium, 0, [], _action] call ace_interact_menu_fnc_addActionToObject;
+		}] remoteExec ["call", _activeContestants];
 	} forEach _occupiedPodiums;
 
-	[_station, 0, ["ACE_MainActions", "Start_Question_" + _numberStr]] call ace_interact_menu_fnc_removeActionFromObject;
+	[[_station, _numberStr], {
+		params ["_station", "_numberStr"];
+		[_station, 0, ["ACE_MainActions", "Start_Question_" + _numberStr]] call ace_interact_menu_fnc_removeActionFromObject;
+	}] remoteExec ["call", _moderator];
 
 	private _timeToAnswer = serverTime + 90;
 	[90] remoteExec ["GRAD_GrandPrix_fnc_quizAnswerCountdown", _activeContestants + [_moderator]];
@@ -89,9 +99,12 @@ private _allQuestions = [
    		_display closeDisplay 0;
 	}] remoteExec ["call", _activeContestants];
 
-	{
-		[_x, 0, ["Question_" + _numberStr]] call ace_interact_menu_fnc_removeActionFromObject;
-	} forEach _occupiedPodiums;
+	[[_occupiedPodiums, _numberStr], {
+		params ["_occupiedPodiums", "_numberStr"];
+		{
+			[_x, 0, ["Question_" + _numberStr]] call ace_interact_menu_fnc_removeActionFromObject;
+		} forEach _occupiedPodiums;
+	}] remoteExec ["call", _activeContestants];
 
 	"" remoteExec ["hintSilent", _activeContestants + [_moderator]];
 	

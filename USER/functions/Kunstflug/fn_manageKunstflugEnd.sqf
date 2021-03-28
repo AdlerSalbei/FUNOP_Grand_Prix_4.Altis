@@ -5,7 +5,7 @@ params ["_group", "_vehicle", "_startTime", "_station", "_handle"];
 
 if !(canSuspend) exitWith {_this spawn GRAD_grandPrix_fnc_manageKunstflugEnd;};
 
-waitUntil { (_group getVariable ["GRAD_KunstflugFinished", false]) && !(isEngineOn _vehicle) && ( _vehicle inArea[[5271.05,9819.14,0.5], 6, 6, 0, true, 5]) };
+waitUntil { (_group getVariable ["GRAD_KunstflugFinished", false]) && !(isEngineOn _vehicle) && ( _vehicle inArea[[5271.05,9819.14,0.5], 7, 7, 0, true, 5]) };
 
 private _allInstructors = [];
 {

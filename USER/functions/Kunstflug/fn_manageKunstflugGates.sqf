@@ -25,7 +25,7 @@ private _distance = _vehicle distance (_allInstructors#0);
 	if (_foreachIndex == (count(_allGates) - 1)) then {
 		_trigger setTriggerArea [18, 18, getDir _x, true, 3];
 	} else {
-		_trigger setTriggerArea [18, 7, getDir _x, true, 18];
+		_trigger setTriggerArea [18, 8, getDir _x, true, 18];
 	};
 	_trigger setPosASL (getPosASL _x);
 	_trigger setTriggerActivation ["VEHICLE", "PRESENT", false];
