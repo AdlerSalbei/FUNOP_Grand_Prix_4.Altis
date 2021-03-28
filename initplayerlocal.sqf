@@ -36,3 +36,18 @@ private _info = uiNamespace getVariable "grad_grandPrix_transferGroupInfo";
 if !(isNil "_info") then {
     ["grad_grandPrix_plank_jumpersDown", [player, _info]] call CBA_fnc_serverEvent;
 };
+
+player addEventHandler ["GetIn", {
+	params ["_vehicle"];
+
+    player allowDamage false;
+    if (local _vehicle) then {
+        _vehicle allowDamage false;
+    };
+}];
+
+player addEventHandler ["GetOut", {
+	params ["_vehicle"];
+
+    player allowDamage false;
+}];

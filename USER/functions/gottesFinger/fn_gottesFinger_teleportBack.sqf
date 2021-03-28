@@ -11,11 +11,7 @@ private _action = [
 			params ["_unit"];
 
 			playSound "jumpTPSound";
-			_unit setPos ((getPosATL tpPlankeDesTodes) vectorAdd [(random 6) -4, (random 6) -4, 0]);
-
-			_unit addBackpack "B_Parachute";
-			_unit linkItem "ACE_Altimeter";
-			_unit linkItem "ItemGPS";
+			_unit setPos ((getPosATL tpGottesFinger_back) vectorAdd [(random 6) -4, (random 6) -4, 0]);
 			
 			cutText ["", "BLACK IN", 3];
 		},[_player], 0.3] call CBA_fnc_waitAndExecute;

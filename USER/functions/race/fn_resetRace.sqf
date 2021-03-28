@@ -1,15 +1,14 @@
+[trigger_resetBoats] call grad_grandPrix_fnc_clearZone;
+
 {
-	_x params ["_vehicle", "_pos"];
-
-	_vehicle setPos _pos;
-	_vehicle setDir 20;
-	_vehicle setFuel 1;
-
+	
+    private _veh = createVehicle ["C_Scooter_Transport_01_F", _x, [], 0, "CAN_COLLIDE"];
+	_veh setPos _x;
+	_veh setDir 188.497;
 }forEach [
-	[raceVehicle_1, [5567.58,3938.14,0]], 
-	[raceVehicle_2, [5571.33,3936.79,0]],
-	[raceVehicle_3, [5565.81,3932.09,0]],
-	[raceVehicle_4, [5569.28,3930.75,0]],
-	[raceVehicle_5, [5563.94,3926.14,0]],
-	[raceVehicle_6, [5566.94,3925.04,0]]	
+	[5744,8908,23.1591],
+	[5748,8908,21.868],
+	[5752,8908,20.57],
+	[5756,8908,19.578],
+	[5760,8908,18.856]
 ];
