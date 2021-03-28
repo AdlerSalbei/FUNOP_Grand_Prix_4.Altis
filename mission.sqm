@@ -8,7 +8,7 @@ class EditorData
 	toggles=9;
 	class ItemIDProvider
 	{
-		nextID=3736;
+		nextID=3747;
 	};
 	class MarkerIDProvider
 	{
@@ -20,10 +20,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={8415.4463,65.307526,4044.0447};
-		dir[]={0.40018889,-0.81193399,-0.42517623};
-		up[]={0.55652392,0.58366114,-0.59127557};
-		aside[]={-0.72823793,1.3781246e-006,-0.6854341};
+		pos[]={7762.146,56.475826,2328.5977};
+		dir[]={0.71718454,-0.67001021,-0.19198371};
+		up[]={0.64724165,0.74231911,-0.17326115};
+		aside[]={-0.25860327,-1.8265564e-007,-0.96604639};
 	};
 };
 binarizationWanted=0;
@@ -86,13 +86,14 @@ addons[]=
 	"CUP_Editor_Signs_Config",
 	"A3_Structures_F_Exp_Infrastructure_Pavements",
 	"ace_goggles",
-	"A3_Characters_F_Orange_Vests"
+	"A3_Characters_F_Orange_Vests",
+	"A3_Structures_F_Enoch_Walls_Concrete"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=42;
+		items=43;
 		class Item0
 		{
 			className="A3_Modules_F_Heli";
@@ -378,6 +379,13 @@ class AddonsMetaData
 			name="ACE3 - Goggles";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
+		};
+		class Item42
+		{
+			className="A3_Structures_F_Enoch";
+			name="Arma 3 Contact Platform - Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
 		};
 	};
 };
@@ -6839,7 +6847,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=966;
+		items=977;
 		class Item0
 		{
 			dataType="Layer";
@@ -87647,6 +87655,261 @@ class Mission
 			};
 			id=3735;
 			type="EmptyDetector";
+		};
+		class Item966
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7723.0259,10.186748,2775.1729};
+				angles[]={0,2.0825353,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=3736;
+			type="Land_CamoConcreteWall_01_l_4m_v2_F";
+			atlOffset=-1.9073486e-006;
+		};
+		class Item967
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7720.5308,10.12865,2769.7563};
+				angles[]={0,1.9173746,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=3737;
+			type="Land_CamoConcreteWall_01_l_4m_v2_F";
+			atlOffset=1.335144e-005;
+		};
+		class Item968
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7719.5278,9.9387674,2764.062};
+				angles[]={0,1.5860142,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=3738;
+			type="Land_CamoConcreteWall_01_l_4m_v2_F";
+			atlOffset=3.1471252e-005;
+		};
+		class Item969
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7725.9351,10.226604,2780.4268};
+				angles[]={0,2.0733871,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=3739;
+			type="Land_CamoConcreteWall_01_l_4m_v2_F";
+			atlOffset=-9.5367432e-007;
+		};
+		class Item970
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7728.9043,10.223577,2785.6372};
+				angles[]={0,2.131618,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=3740;
+			type="Land_CamoConcreteWall_01_l_4m_v2_F";
+			atlOffset=-3.8146973e-006;
+		};
+		class Item971
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7732.2642,10.220531,2790.3987};
+				angles[]={0,2.2383785,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=3741;
+			type="Land_CamoConcreteWall_01_l_4m_v2_F";
+			atlOffset=-4.863739e-005;
+		};
+		class Item972
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7736.418,10.320614,2794.5706};
+				angles[]={0,2.4790041,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=3742;
+			type="Land_CamoConcreteWall_01_l_4m_v2_F";
+			atlOffset=2.0980835e-005;
+		};
+		class Item973
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7741.4795,10.616518,2797.5105};
+				angles[]={0,2.7549717,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=3743;
+			type="Land_CamoConcreteWall_01_l_4m_v2_F";
+			atlOffset=-2.6702881e-005;
+		};
+		class Item974
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7743.6484,6.8122325,2687.7244};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=3744;
+			type="Land_Billboard_F";
+			atlOffset=8.5830688e-006;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ObjectTextureCustom0";
+					expression="_this setObjectTextureGlobal [0,_value]";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="data\slow.paa";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item975
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7569.7988,81.052979,3936.2778};
+				angles[]={0,5.7848988,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=3745;
+			type="Land_Billboard_F";
+			atlOffset=7.6293945e-006;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ObjectTextureCustom0";
+					expression="_this setObjectTextureGlobal [0,_value]";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="data\slow.paa";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item976
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7794.6016,17.409468,2326.4963};
+				angles[]={0,1.8362482,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=3746;
+			type="Land_Billboard_F";
+			atlOffset=2.8610229e-006;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ObjectTextureCustom0";
+					expression="_this setObjectTextureGlobal [0,_value]";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="data\slow.paa";
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 	};
 	class Connections
