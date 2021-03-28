@@ -17,6 +17,6 @@ private _return = nil;
 	if (leader _group  in _member) exitWith {
 		_return = _name;
 	};
-}forEach _groups;
+} forEach _groups;
 
 _return

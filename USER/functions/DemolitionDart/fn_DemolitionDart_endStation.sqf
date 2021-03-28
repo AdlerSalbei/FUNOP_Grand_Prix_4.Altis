@@ -1,3 +1,5 @@
+#define BEST_AVERAGE 75
+
 params ["_station", "_group"];
 
 {
@@ -22,15 +24,13 @@ private _distance = _station distance (_allInstructors#0);
 
 private _allDistances = missionNamespace getVariable ["GRAD_DemolitionDart_allDistances", []];
 _allDistances sort false;
-systemChat str _allDistances;
 _allDistances deleteAt 0;
-systemChat str _allDistances;
 private _sum = 0;
 {
 	_sum = _sum + _x;	
 } forEach _allDistances;
 private _averageDistance = _sum / (count _allDistances);
-private _points = 1000 - round(_averageDistance * 2);
+private _points = (round((BEST_AVERAGE / _averageDistance) * 1000)) min 1000;
 [_group, _points, "Demolition Dart"] call grad_grandPrix_fnc_addPoints;
 
 private _result = format[

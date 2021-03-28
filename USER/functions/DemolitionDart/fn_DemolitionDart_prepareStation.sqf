@@ -18,18 +18,18 @@ missionNamespace setVariable ["GRAD_DemolitionDart_allDistances", [], true];
         "Beobachter",
         "",
         { [player] spawn GRAD_GrandPrix_fnc_DemolitionDart_assignSpectator; },
-        { !(player getVariable ["GRAD_DemolitionDart_roleChosen", false]) && ((missionNamespace getVariable ["GRAD_DemolitionDart_spectatorCount", 0]) < ((missionNamespace getVariable ["GRAD_DemolitionDart_playerCount", count (units (missionNamespace getVariable ["GRAD_DemolitionDart_groupPlaying", grpNull]))]) - 1)) }
+        { !(player getVariable ["GRAD_DemolitionDart_roleChosen", false]) && ((missionNamespace getVariable ["GRAD_DemolitionDart_spectatorCount", 0]) <= ((missionNamespace getVariable ["GRAD_DemolitionDart_playerCount", count (units (missionNamespace getVariable ["GRAD_DemolitionDart_groupPlaying", grpNull]))]) - 1)) && ((missionNamespace getVariable ["GRAD_DemolitionDart_driverCount", 0]) >= 1) }
     ] call ace_interact_menu_fnc_createAction;
-    [_station, 0, [], _action] call ace_interact_menu_fnc_addActionToObject;
+    [_station, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
 
     private _action2 = [
         "Choose_Driver",
         "Fahrer",
         "",
         { [player] spawn GRAD_GrandPrix_fnc_DemolitionDart_assignDriver; },
-        { !(player getVariable ["GRAD_DemolitionDart_roleChosen", false]) && ((missionNamespace getVariable ["GRAD_DemolitionDart_driverCount", 0]) < ((missionNamespace getVariable ["GRAD_DemolitionDart_playerCount", count (units (missionNamespace getVariable ["GRAD_DemolitionDart_groupPlaying", grpNull]))]) - 1)) && ((missionNamespace getVariable ["GRAD_DemolitionDart_driverCount", 0]) < 3) }
+        { !(player getVariable ["GRAD_DemolitionDart_roleChosen", false]) && ((missionNamespace getVariable ["GRAD_DemolitionDart_driverCount", 0]) <= ((missionNamespace getVariable ["GRAD_DemolitionDart_playerCount", count (units (missionNamespace getVariable ["GRAD_DemolitionDart_groupPlaying", grpNull]))]) - 1)) && ((missionNamespace getVariable ["GRAD_DemolitionDart_driverCount", 0]) < 3) }
     ] call ace_interact_menu_fnc_createAction;
-    [_station, 0, [], _action2] call ace_interact_menu_fnc_addActionToObject;
+    [_station, 0, ["ACE_MainActions"], _action2] call ace_interact_menu_fnc_addActionToObject;
 }] remoteExec ["call", _group];
 
 

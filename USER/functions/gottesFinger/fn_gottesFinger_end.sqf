@@ -45,7 +45,7 @@ _textRows pushBack format ["<t align='right' font='EtelkaMonospacePro'>%1</t>", 
 
 [QGVAR(handler), "onEachFrame"] remoteExec ["BIS_fnc_removeStackedEventHandler", _group];
 
-[_group, "gottesFinger", _totalTime] call grad_grandPrix_fnc_addTime;
+[_group, _totalTime, 90, 1000, "gottesFinger"] call grad_grandPrix_fnc_addTime;
 
 _station setVariable [QGVAR(group), nil, true];
 _station setVariable [QGVAR(running), nil, true];

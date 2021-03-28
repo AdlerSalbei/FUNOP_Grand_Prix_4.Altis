@@ -2,7 +2,7 @@ if (didJIP) then {
     [player] remoteExec ["grad_common_fnc_addJipToZeus",2,false];
 };
 
-["InitializePlayer", [player,true]] call BIS_fnc_dynamicGroups;
+// ["InitializePlayer", [player,true]] call BIS_fnc_dynamicGroups;
 grad_template_ratingEH = player addEventHandler ["HandleRating",{0}];
 
 ["grad_grandPrix_plank_result", {
@@ -31,3 +31,8 @@ grad_template_ratingEH = player addEventHandler ["HandleRating",{0}];
 ["grad_grandPrix_race_result", {
     [] call grad_grandPrix_fnc_results;
 }] call CBA_fnc_addEventHandler;
+
+private _info = uiNamespace getVariable "grad_grandPrix_transferGroupInfo";
+if !(isNil "_info") then {
+    ["grad_grandPrix_plank_jumpersDown", [player, _info]] call CBA_fnc_serverEvent;
+};

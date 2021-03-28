@@ -1,4 +1,5 @@
-#define TIME_PER_TARGET 2;
+#define TIME_PER_TARGET 2
+#define BEST_TIME 140
 
 params ["_group", "_vehicle", "_startTime", "_station", "_handle"];
 
@@ -45,8 +46,9 @@ private _allTargets = missionNamespace getVariable ["GRAD_KunstflugTargets", []]
 
 private _targetsHit = _group getVariable ["GRAD_KunstflugTargetsHit", 0];
 private _totalTime = _timeTaken - _targetsHit * TIME_PER_TARGET;
-if (_totalTime < 110) then { _totalTime = 110; };
-private _pointsToAdd = [_group, _totalTime, 110, 1000, "Kunstflug"] call grad_grandPrix_fnc_addTime;
+// private _points = (round((BEST_TIME/_totalTime) * 1000)) min 1000;
+private _points = [_group, _totalTime, BEST_TIME, 1000, "Kunstflug"] call grad_grandPrix_fnc_addTime;
+// private _pointsToAdd = [_group, _totalTime, 110, 1000, "Kunstflug"] call grad_grandPrix_fnc_addTime;
 
 private _result = format[
 	"Eure Flugzeit betrug %1. Dabei habt ihr %2 von %3 Zielen getroffen. Eure Gesamtzeit beträgt also %4. Damit habt ihr euch %5 Punkte erspielt!",
@@ -54,7 +56,7 @@ private _result = format[
 	_targetsHit,
 	count _allTargets,
 	[_totalTime, "MM:SS"] call BIS_fnc_secondsToString,
-	_pointsToAdd
+	_points
 ];
 
 [_result] remoteExec ["hint", (units _group) + [_nearestInstructor]];

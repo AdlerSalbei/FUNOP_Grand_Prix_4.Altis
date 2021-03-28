@@ -44,7 +44,6 @@ class grad_grandPrix
 		class getGroup {};
 		class initGroups {};
 		class showResult {};
-		class showStages {};
 	};
 
 	class Kunstflug {
@@ -65,5 +64,35 @@ class grad_grandPrix
 		class DemolitionDart_endStation {};
 		class DemolitionDart_assignSpectator {};
 		class DemolitionDart_assignDriver {};
+	};
+
+	class exits {
+		file = "USER\functions\Quiz\exits";
+		class quizManageExits {};
+		class quizAfterExit {};
+		class quizYeeetExit {};
+		class quizMissileExit {};
+		class quizFallingPillarExit {};
+		class quizZSUExit {};
+		class quizTractorExit {};
+	};
+
+	class gui {
+		file = "USER\functions\Quiz\gui";
+		class quizCreateEditQuestionDisplay {};
+		class quizCreateChoiceQuestionDisplay {};
+		class quizCreateBaseDisplay {};
+		class quizGetStructuredHeight {};
+		class quizHandleNumberInput {};
+		class quizHandleStringInput {};
+	};
+
+	class util {
+		file = "USER\functions\Quiz\util";
+		class quizInitStation {};
+		class startQuiz {};
+		class quizInitQuestions {};
+		class quizAnswerCountdown {};
+		class endQuiz {};
 	};		
 };
