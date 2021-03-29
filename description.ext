@@ -25,7 +25,6 @@ enableDebugConsole = 1;
 #include "cfgEventHandlers.hpp"
 #include "cfgIslands.hpp"
 #include "cfgCivilians.hpp"
-#include "USER\CfgFlightPaths.hpp"
 
 class missionSettings {
 	#include "USER\missionSettings.hpp"

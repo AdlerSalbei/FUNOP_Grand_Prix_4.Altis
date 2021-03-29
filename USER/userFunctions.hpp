@@ -23,11 +23,15 @@ class grad_grandPrix
 	{
 		file = "USER\functions\race";
 		class addActions {};
+		class addActionToRestoreCars {};
+		class addActionToRestorePlanes {};
+		class clearZone {};
 		class resetRace {};
 		class results {};
 		class startRace {};
 		class startTimeRecording {};
 		class stopTimeRecording {};
+		class unhideCircles {};
   	};
 	class planke
 	{

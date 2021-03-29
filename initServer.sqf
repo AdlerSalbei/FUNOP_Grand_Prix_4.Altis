@@ -11,15 +11,6 @@ missionNamespace setVariable ["GRAD_quiz_allContestantPositionMarkers", [GRAD_qu
 east setFriend [west, 1];
 west setFriend [east, 1];
 
-// for "_i" from 1 to 5 do {
-// 	private _name = format ["array%1", _i];
-// 	private _array = [missionConfigFile >> "CfgFlightPaths" >> _name, "ARRAY", []] call CBA_fnc_getConfigEntry;
-
-// 	{
-// 		_x hideObjectGlobal true;
-// 	}forEach _array;
-// };
-
 ["grad_grandPrix_setGroup", {
     params ["_player", "_info"];
     private _groupInfo = missionNamespace getVariable ["grad_grandPrix_groupInfo", []];

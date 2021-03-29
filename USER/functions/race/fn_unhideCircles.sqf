@@ -1,5 +1,4 @@
-class CfgFlightPaths {
-array1[] = { 
+private _array1 = [
 	heli_helper_1_01, 
 	heli_helper_1_02, 
 	heli_helper_1_03, 
@@ -27,11 +26,9 @@ array1[] = {
 	heli_helper_1_25, 
 	heli_helper_1_26, 
 	heli_helper_1_27, 
-	heli_helper_1_28, 
-	heli_helper_1_29, 
-	heli_helper_1_30 
-}; 
-array2[] = { 
+	heli_helper_1_28
+]; 
+private _array2 = [
 	heli_helper_2_01, 
 	heli_helper_2_02, 
 	heli_helper_2_03, 
@@ -59,11 +56,9 @@ array2[] = {
 	heli_helper_2_25, 
 	heli_helper_2_26, 
 	heli_helper_2_27, 
-	heli_helper_2_28, 
-	heli_helper_2_29, 
-	heli_helper_2_30 
-}; 
-array3[] = { 
+	heli_helper_2_28
+]; 
+private _array3 = [
 	heli_helper_3_01, 
 	heli_helper_3_02, 
 	heli_helper_3_03, 
@@ -88,14 +83,12 @@ array3[] = {
 	heli_helper_3_22, 
 	heli_helper_3_23, 
 	heli_helper_3_24, 
-	heli_helper_3_25, 
-	heli_helper_3_26, 
-	heli_helper_3_27, 
-	heli_helper_3_28, 
-	heli_helper_3_29, 
-	heli_helper_3_30 
-}; 
-array4[] = {  
+	heli_helper_1_25, 
+	heli_helper_1_26, 
+	heli_helper_1_27, 
+	heli_helper_1_28 
+]; 
+private _array4 = [ 
 	heli_helper_4_01, 
 	heli_helper_4_02, 
 	heli_helper_4_03, 
@@ -120,14 +113,12 @@ array4[] = {
 	heli_helper_4_22, 
 	heli_helper_4_23, 
 	heli_helper_4_24, 
-	heli_helper_4_25, 
-	heli_helper_4_26, 
-	heli_helper_4_27, 
-	heli_helper_4_28, 
-	heli_helper_4_29, 
-	heli_helper_4_30 
-}; 
-array5[] = { 
+	heli_helper_2_25, 
+	heli_helper_2_26, 
+	heli_helper_2_27, 
+	heli_helper_2_28
+]; 
+private _array5 = [
 	heli_helper_5_01, 
 	heli_helper_5_02, 
 	heli_helper_5_03, 
@@ -152,12 +143,30 @@ array5[] = {
 	heli_helper_5_22, 
 	heli_helper_5_23, 
 	heli_helper_5_24, 
-	heli_helper_5_25, 
-	heli_helper_5_26, 
-	heli_helper_5_27, 
-	heli_helper_5_28, 
-	heli_helper_5_29, 
-	heli_helper_5_30 
-}; 
+	heli_helper_1_25, 
+	heli_helper_1_26, 
+	heli_helper_1_27, 
+	heli_helper_1_28 
+]; 
 
-};
+params ["_vehicle"];
+
+
+private _array = {(_vehicle getVariable "grad_gradPrix4_planePathNum" -1)} select [_array1, _array2, _array3, _array4, _array5]
+
+{
+
+	private _trigger = createTrigger ["EmptyDetector", _x, false];
+	_trigger setTriggerArea [18, 18, getDir _x, true, 18];
+	_trigger setPosASL (getPosASL _x);
+	_trigger setTriggerActivation ["VEHICLE", "PRESENT", false];
+	_trigger triggerAttachVehicle [_vehicle];
+	_trigger setTriggerStatements ["this", "", ""];
+	_trigger setTriggerInterval 0;
+	_x hideObjectGlobal false;
+	waitUntil { triggerActivated _trigger || !(alive _vehicle) };
+	if !(alive _vehicle) exitWith { deleteVehicle _trigger; };
+	[format['Tor %1 von %2 wurde passiert!', _foreachIndex + 1, count _array]] remoteExec ['hintSilent', player];
+	_x hideObjectGlobal true;
+} forEach _array;
+
