@@ -34,7 +34,7 @@ grad_template_ratingEH = player addEventHandler ["HandleRating",{0}];
 
 private _info = uiNamespace getVariable "grad_grandPrix_transferGroupInfo";
 if !(isNil "_info") then {
-    ["grad_grandPrix_plank_jumpersDown", [player, _info]] call CBA_fnc_serverEvent;
+    ["grad_grandPrix_setGroup", [player, _info]] call CBA_fnc_serverEvent;
 };
 
 player addEventHandler ["GetIn", {

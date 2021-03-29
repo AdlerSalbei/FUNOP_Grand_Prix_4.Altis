@@ -20,7 +20,7 @@ west setFriend [east, 1];
 // 	}forEach _array;
 // };
 
-["grad_grandPrix_race_result", {
+["grad_grandPrix_setGroup", {
     params ["_player", "_info"];
     private _groupInfo = missionNamespace getVariable ["grad_grandPrix_groupInfo", []];
 
