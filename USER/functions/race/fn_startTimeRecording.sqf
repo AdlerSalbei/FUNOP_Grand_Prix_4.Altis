@@ -9,7 +9,7 @@ _unit setVariable ["grad_grandPrix_race_timerID", _id, true];
 
 ["grad_grandPrix_race_driversUp", [_unit]] call CBA_fnc_serverEvent;
 
-playMusic "Black_Betty";
+playMusic "nightOfFire";
 
 _vehicle allowDamage false;
 _unit allowDamage false;

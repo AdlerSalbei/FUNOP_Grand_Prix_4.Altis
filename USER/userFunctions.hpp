@@ -26,6 +26,7 @@ class grad_grandPrix
 		class addActionToRestoreCars {};
 		class addActionToRestorePlanes {};
 		class clearZone {};
+		class playCarMusic {};
 		class resetRace {};
 		class results {};
 		class startRace {};

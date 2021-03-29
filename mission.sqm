@@ -8,7 +8,7 @@ class EditorData
 	toggles=9;
 	class ItemIDProvider
 	{
-		nextID=3750;
+		nextID=3753;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=578;
+		nextID=602;
 	};
 	class Camera
 	{
-		pos[]={5757.9502,41.251133,8937.6621};
-		dir[]={-0.33659953,-0.79314321,-0.50756758};
-		up[]={-0.43835163,0.60903502,-0.6610024};
-		aside[]={-0.83339602,1.4901161e-008,0.5526765};
+		pos[]={8486.7695,167.55942,3998.7842};
+		dir[]={0.020170921,-0.69332319,0.72034442};
+		up[]={0.019406673,0.72062677,0.69305152};
+		aside[]={0.99960816,0,-0.027990803};
 	};
 };
 binarizationWanted=0;
@@ -79993,7 +79993,7 @@ class Mission
 			dataType="Marker";
 			position[]={5749.249,5.4759998,8952.7881};
 			name="Race";
-			text="Race";
+			text="Five Planes One Cup";
 			type="mil_objective";
 			colorName="ColorWEST";
 			id=3391;
@@ -80019,7 +80019,7 @@ class Mission
 			{
 				name="trigger_setPlaneVar";
 				condition="call{this && (vehicle player) in thisList}";
-				onActivation="call{{" \n "if (local _x) then {" \n "5 fadeMusic 0;" \n "[{playMusic """"; 1 fadeMusic 1;},[],5.5] call cba_fnc_waitAndExecute;" \n "[{ " \n " private _num = (_this select 0) getVariable [""grad_gradPrix4_planePathNum"", -1]; " \n " _num >= 0 " \n "},{ " \n " [_x] spawn grad_grandPrix_fnc_unhideCircles; " \n "},[_x],500,{}] call CBA_fnc_waitUntilAndExecute;" \n "};" \n "} forEach thisList;}";
+				onActivation="call{{" \n "if (local _x) then {" \n "3 fadeMusic 0;" \n "[{" \n "playMusic """"; 1 fadeMusic 1;" \n "},[],3.5] call cba_fnc_waitAndExecute;" \n "[{ " \n " private _num = (vehicle player) getVariable [""grad_gradPrix4_planePathNum"", -1]; " \n "_num >= 0 " \n "},{ " \n " [vehicle player] spawn grad_grandPrix_fnc_unhideCircles; " \n "},[_x],500,{}] call CBA_fnc_waitUntilAndExecute;" \n "};" \n "} forEach thisList;}";
 				sizeA=20;
 				sizeC=10;
 				repeatable=1;

@@ -150,12 +150,13 @@ private _array5 = [
 ]; 
 
 params ["_vehicle"];
-
-
-private _array = {(_vehicle getVariable "grad_gradPrix4_planePathNum" -1)} select [_array1, _array2, _array3, _array4, _array5]
+[{
+	playMusic "ghostRider";
+}, [], 10] call CBA_fnc_waitAndExecute;
+private _num = ((_vehicle getVariable "grad_gradPrix4_planePathNum") -1);
+private _array = [_array1, _array2, _array3, _array4, _array5] select _num;
 
 {
-
 	private _trigger = createTrigger ["EmptyDetector", _x, false];
 	_trigger setTriggerArea [18, 18, getDir _x, true, 18];
 	_trigger setPosASL (getPosASL _x);
@@ -164,9 +165,15 @@ private _array = {(_vehicle getVariable "grad_gradPrix4_planePathNum" -1)} selec
 	_trigger setTriggerStatements ["this", "", ""];
 	_trigger setTriggerInterval 0;
 	_x hideObjectGlobal false;
-	waitUntil { triggerActivated _trigger || !(alive _vehicle) };
-	if !(alive _vehicle) exitWith { deleteVehicle _trigger; };
-	[format['Tor %1 von %2 wurde passiert!', _foreachIndex + 1, count _array]] remoteExec ['hintSilent', player];
-	_x hideObjectGlobal true;
+	[{
+		params ["_trigger", "_vehicle"];
+		triggerActivated _trigger || !(alive _vehicle)
+	},{
+		params ["_trigger", "_vehicle", "_number", "_arrayNum", "_obj"];
+
+		if !(alive _vehicle) exitWith { deleteVehicle _trigger; _obj hideObjectGlobal true;};
+		[format['Tor %1 von %2 wurde passiert!', _number, _arrayNum]] remoteExec ['hintSilent', player];
+		_obj hideObjectGlobal true;
+	},[_trigger, _vehicle, _forEachIndex + 1, count _array, _x]] call CBA_fnc_waitUntilAndExecute;	
 } forEach _array;
 

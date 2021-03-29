@@ -81,8 +81,7 @@ private _allRaceGates = [
 	heli_helper_1_25, 
 	heli_helper_1_26, 
 	heli_helper_1_27, 
-	heli_helper_1_28, 
-	heli_helper_1_29,
+	heli_helper_1_28,
 
 	heli_helper_2_01, 
 	heli_helper_2_02, 
@@ -111,8 +110,7 @@ private _allRaceGates = [
 	heli_helper_2_25, 
 	heli_helper_2_26, 
 	heli_helper_2_27, 
-	heli_helper_2_28, 
-	heli_helper_2_29,
+	heli_helper_2_28,
 
 	heli_helper_3_01, 
 	heli_helper_3_02, 
