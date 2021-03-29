@@ -11,14 +11,14 @@ missionNamespace setVariable ["GRAD_quiz_allContestantPositionMarkers", [GRAD_qu
 east setFriend [west, 1];
 west setFriend [east, 1];
 
-for "_i" from 1 to 5 do {
-	private _name = format ["array%1", _i];
-	private _array = [missionConfigFile >> "CfgFlightPaths" >> _name, "ARRAY", []] call CBA_fnc_getConfigEntry;
+// for "_i" from 1 to 5 do {
+// 	private _name = format ["array%1", _i];
+// 	private _array = [missionConfigFile >> "CfgFlightPaths" >> _name, "ARRAY", []] call CBA_fnc_getConfigEntry;
 
-	{
-		_x hideObjectGlobal true;
-	}forEach _array;
-};
+// 	{
+// 		_x hideObjectGlobal true;
+// 	}forEach _array;
+// };
 
 ["grad_grandPrix_race_result", {
     params ["_player", "_info"];
@@ -52,3 +52,151 @@ for "_i" from 1 to 5 do {
 
 	[_player] join _groupID;
 }] call CBA_fnc_addEventHandler;
+
+missionNamespace setVariable ["GRAD_GrandPrix_allContestantGroups", [GRAD_GrandPrix_Team_Escobar, GRAD_GrandPrix_Team_Capone, GRAD_GrandPrix_Team_Gambino, GRAD_GrandPrix_Team_Taoka, GRAD_GrandPrix_Team_May], true];
+missionNamespace setVariable ["GRAD_GrandPrix_allContestantGroupNames", ["Team Escobar", "Team Capone", "Team Gambino", "Team Taoka", "Team May"], true];
+
+
+
+
+
+
+
+private _allRaceGates = [
+	heli_helper_1_01, 
+	heli_helper_1_02, 
+	heli_helper_1_03, 
+	heli_helper_1_04, 
+	heli_helper_1_05, 
+	heli_helper_1_06, 
+	heli_helper_1_07, 
+	heli_helper_1_08, 
+	heli_helper_1_09, 
+	heli_helper_1_10, 
+	heli_helper_1_11, 
+	heli_helper_1_12, 
+	heli_helper_1_13, 
+	heli_helper_1_14, 
+	heli_helper_1_15, 
+	heli_helper_1_16, 
+	heli_helper_1_17, 
+	heli_helper_1_18, 
+	heli_helper_1_19, 
+	heli_helper_1_20, 
+	heli_helper_1_21, 
+	heli_helper_1_22, 
+	heli_helper_1_23, 
+	heli_helper_1_24, 
+	heli_helper_1_25, 
+	heli_helper_1_26, 
+	heli_helper_1_27, 
+	heli_helper_1_28, 
+	heli_helper_1_29,
+
+	heli_helper_2_01, 
+	heli_helper_2_02, 
+	heli_helper_2_03, 
+	heli_helper_2_04, 
+	heli_helper_2_05, 
+	heli_helper_2_06, 
+	heli_helper_2_07, 
+	heli_helper_2_08, 
+	heli_helper_2_09, 
+	heli_helper_2_10, 
+	heli_helper_2_11, 
+	heli_helper_2_12, 
+	heli_helper_2_13, 
+	heli_helper_2_14, 
+	heli_helper_2_15, 
+	heli_helper_2_16, 
+	heli_helper_2_17, 
+	heli_helper_2_18, 
+	heli_helper_2_19, 
+	heli_helper_2_20, 
+	heli_helper_2_21, 
+	heli_helper_2_22, 
+	heli_helper_2_23, 
+	heli_helper_2_24, 
+	heli_helper_2_25, 
+	heli_helper_2_26, 
+	heli_helper_2_27, 
+	heli_helper_2_28, 
+	heli_helper_2_29,
+
+	heli_helper_3_01, 
+	heli_helper_3_02, 
+	heli_helper_3_03, 
+	heli_helper_3_04, 
+	heli_helper_3_05, 
+	heli_helper_3_06, 
+	heli_helper_3_07, 
+	heli_helper_3_08, 
+	heli_helper_3_09, 
+	heli_helper_3_10, 
+	heli_helper_3_11, 
+	heli_helper_3_12, 
+	heli_helper_3_13, 
+	heli_helper_3_14, 
+	heli_helper_3_15, 
+	heli_helper_3_16, 
+	heli_helper_3_17, 
+	heli_helper_3_18, 
+	heli_helper_3_19, 
+	heli_helper_3_20, 
+	heli_helper_3_21, 
+	heli_helper_3_22, 
+	heli_helper_3_23, 
+	heli_helper_3_24,
+
+	heli_helper_4_01, 
+	heli_helper_4_02, 
+	heli_helper_4_03, 
+	heli_helper_4_04, 
+	heli_helper_4_05, 
+	heli_helper_4_06, 
+	heli_helper_4_07, 
+	heli_helper_4_08, 
+	heli_helper_4_09, 
+	heli_helper_4_10, 
+	heli_helper_4_11, 
+	heli_helper_4_12, 
+	heli_helper_4_13, 
+	heli_helper_4_14, 
+	heli_helper_4_15, 
+	heli_helper_4_16, 
+	heli_helper_4_17, 
+	heli_helper_4_18, 
+	heli_helper_4_19, 
+	heli_helper_4_20, 
+	heli_helper_4_21, 
+	heli_helper_4_22, 
+	heli_helper_4_23, 
+	heli_helper_4_24,
+
+	heli_helper_5_01, 
+	heli_helper_5_02, 
+	heli_helper_5_03, 
+	heli_helper_5_04, 
+	heli_helper_5_05, 
+	heli_helper_5_06, 
+	heli_helper_5_07, 
+	heli_helper_5_08, 
+	heli_helper_5_09, 
+	heli_helper_5_10, 
+	heli_helper_5_11, 
+	heli_helper_5_12, 
+	heli_helper_5_13, 
+	heli_helper_5_14, 
+	heli_helper_5_15, 
+	heli_helper_5_16, 
+	heli_helper_5_17, 
+	heli_helper_5_18, 
+	heli_helper_5_19, 
+	heli_helper_5_20, 
+	heli_helper_5_21, 
+	heli_helper_5_22, 
+	heli_helper_5_23, 
+	heli_helper_5_24
+];
+
+missionNamespace setVariable ["GRAD_GrandPrix_allRaceGates", _allRaceGates, true];

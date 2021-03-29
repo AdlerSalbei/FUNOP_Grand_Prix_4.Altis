@@ -10,11 +10,13 @@ if !(canSuspend) exitWith { _this spawn GRAD_GrandPrix_fnc_quizYeeetExit; };
 
 _blub = getPos _unit;
 _blub set [2, (getPos _unit)#2 + 0.1];
-_unit setVelocity [0,0,15];
+[_unit, [0, 0, 15]] remoteExec ["setVelocity", _unit];
+// _unit setVelocity [0,0,15];
 
 waitUntil { ((velocity _unit) # 2) <= 0 };
 
-_unit setVelocity [-130, -130, 50];
+[_unit, [-130, -130, 50]] remoteExec ["setVelocity", _unit];
+// _unit setVelocity [-130, -130, 50];
 
 waitUntil { _unit inArea GRAD_quiz_yeeetTrigger };
 

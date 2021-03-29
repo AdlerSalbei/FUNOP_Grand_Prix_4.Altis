@@ -1,12 +1,13 @@
 #include "idcmacros.hpp"
 
-#define DIALOG_W (100 * GRID_W)
+#define DIALOG_W (110 * GRID_W)
 #define DIALOG_H (75 * GRID_H)
 #define MARGIN_H (0.5 * GRID_H)
 #define MARGIN_W (0.5 * GRID_W)
 #define GAME_COL_WIDTH 0.2
 
 private _allGroups = missionNamespace getVariable ["GRAD_GrandPrix_allContestantGroups", []];
+private _allGroupNames = missionNamespace getVariable ["GRAD_GrandPrix_allContestantGroupNames", []];
 if ((count _allGroups) <= 0) exitWith { systemChat "fn_showResult: No contestant-groups found!" };
 
 private _dialogX = CENTER_X(DIALOG_W);
@@ -64,22 +65,21 @@ while { count (lnbGetColumnsPosition _resultCtrl) > 0 } do {
 _resultCtrl lnbAddColumn 0;
 
 // add teams columns
-#define TEAMS_COUNT 4
-private _colWidth = (1 - GAME_COL_WIDTH) / TEAMS_COUNT;
+private _teamsCount = (count _allGroups);
+private _colWidth = (1 - GAME_COL_WIDTH) / _teamsCount;
 private _xPos = GAME_COL_WIDTH;
 while { _xPos < 1 } do {
     _resultCtrl lnbAddColumn _xPos;
     _xPos = _xPos + _colWidth;
 };
 
-private _headRow = [""];
+private _headRow = [""] + _allGroupNames;
 private _allGroupVars = [];
 {
 	// Current result is saved in variable _x
-	private _groupID = groupId _x;
-    _headRow pushBackUnique _groupID;
-    private _var = missionNamespace getVariable [_groupID, []];
-    _allGroupVars pushBackUnique [_groupID, _var];
+	private _groupName = _allGroupNames # _foreachIndex;
+    private _var = missionNamespace getVariable [_groupName, []];
+    _allGroupVars pushBackUnique [_groupName, _var];
 } forEach _allGroups;
 _resultCtrl lnbAddRow _headRow;
 

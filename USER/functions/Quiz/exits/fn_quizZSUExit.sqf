@@ -5,7 +5,8 @@ if !(canSuspend) exitWith { _this spawn GRAD_GrandPrix_fnc_quizBrrrtExit; };
 private _unitPos = getPos _unit;
 _unitPos set [2, (_unitPos#2) + 0.1];
 _unit setPos _unitPos;
-_unit setVelocity [0,0, 16];
+[_unit, [0,0, 16]] remoteExec ["setVelocity", _unit];
+// _unit setVelocity [0,0, 16];
 
 waitUntil { ((velocity _unit)#2) <= 0 };
 

@@ -61,6 +61,7 @@ for [{_i=1;}, {_i<=5}, {_i=_i+1;}] do {
 		{
 			moveOut (_x#0);
 		} forEach (fullCrew _vehicle);
+		sleep 0.2;
 		deleteVehicle _vehicle;
 		continue;
 	};
@@ -68,6 +69,7 @@ for [{_i=1;}, {_i<=5}, {_i=_i+1;}] do {
 	[_vehicle, {
 		_this setFuel 0;
 		_this engineOn false;
+		_this allowDamage true;
 	}] remoteExec ["call", owner _vehicle];
 
 	waitUntil { (isTouchingGround _vehicle) || (((getPos _vehicle)#2) < 0.8) };
