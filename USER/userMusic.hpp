@@ -4,11 +4,11 @@
 */
 
 
-tracks[] = {};
-class CantStop
-{
-	// display name
-	name	= "CantStop";
-	// filename, volume, pitch
-	sound[]	= { "USER\music\Cant_Stop.ogg", db + 0, 1.0 };
-};
+// tracks[] = {};
+// class CantStop
+// {
+// 	// display name
+// 	name	= "CantStop";
+// 	// filename, volume, pitch
+// 	sound[]	= { "USER\music\Cant_Stop.ogg", db + 0, 1.0 };
+// };

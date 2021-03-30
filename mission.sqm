@@ -8,7 +8,7 @@ class EditorData
 	toggles=9;
 	class ItemIDProvider
 	{
-		nextID=3984;
+		nextID=3985;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=638;
+		nextID=674;
 	};
 	class Camera
 	{
-		pos[]={5454.6001,376.90085,3604.5149};
-		dir[]={-0.74331772,-0.55301225,0.37640807};
-		up[]={-0.49336722,0.83316976,0.24983583};
-		aside[]={0.45177266,-4.3830369e-007,0.89214712};
+		pos[]={2559.4854,156.04965,8540.4365};
+		dir[]={-0.02638901,-0.25766695,-0.96587771};
+		up[]={-0.0070374673,0.96623313,-0.25757262};
+		aside[]={-0.99963075,-4.3000909e-008,0.02731167};
 	};
 };
 binarizationWanted=0;
@@ -77,6 +77,7 @@ addons[]=
 	"A3_Structures_F_Items_Food",
 	"A3_Soft_F_Exp_Offroad_02",
 	"A3_Soft_F_Offroad_01",
+	"ace_optics",
 	"tfar_handhelds",
 	"A3_Boat_F_Jets_Carrier_01",
 	"A3_Characters_F_Common",
@@ -103,7 +104,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=51;
+		items=52;
 		class Item0
 		{
 			className="A3_Modules_F_Heli";
@@ -360,90 +361,97 @@ class AddonsMetaData
 		};
 		class Item37
 		{
+			className="ace_optics";
+			name="ACE3 - Optics";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
+		class Item38
+		{
 			className="tfar_handhelds";
 			name="tfar_handhelds";
 			url="https://github.com/michail-nikolaev/task-force-arma-3-radio";
 		};
-		class Item38
+		class Item39
 		{
 			className="A3_Boat_F_Jets";
 			name="Arma 3 Jets - Boats and Submersibles";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item39
+		class Item40
 		{
 			className="A3_Static_F_Destroyer";
 			name="CFGPATCHES_A3_Static_F_Destroyer";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item40
+		class Item41
 		{
 			className="CUP_Editor_Signs_Config";
 			name="CUP_Editor_Signs_Config";
 		};
-		class Item41
+		class Item42
 		{
 			className="ace_goggles";
 			name="ACE3 - Goggles";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item42
+		class Item43
 		{
 			className="A3_Structures_F_Enoch";
 			name="Arma 3 Contact Platform - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item43
+		class Item44
 		{
 			className="A3_Structures_F_Kart";
 			name="Arma 3 Karts - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item44
+		class Item45
 		{
 			className="A3_nature_sm";
 			name="Arma_Natures";
 			author="Arma_Natures";
 		};
-		class Item45
+		class Item46
 		{
 			className="A3_Structures_F_EPC";
 			name="Arma 3 Win Episode - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item46
+		class Item47
 		{
 			className="MBG_Buildings_3";
 			name="MBG_Buildings_3";
 		};
-		class Item47
+		class Item48
 		{
 			className="A3_Soft_F_Kart";
 			name="Arma 3 Karts - Unarmored Land Vehicles";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item48
+		class Item49
 		{
 			className="A3_Props_F_Exp";
 			name="Arma 3 Apex - Decorative and Mission Objects";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item49
+		class Item50
 		{
 			className="rhsgref_c_canoe";
 			name="RHS Canoe";
 			author="Red Hammer Studios";
 			url="http://www.rhsmods.org/";
 		};
-		class Item50
+		class Item51
 		{
 			className="A3_Boat_F_Gamma";
 			name="Arma 3 - Boats and Submersibles";
@@ -459,7 +467,7 @@ class ScenarioData
 };
 class CustomAttributes
 {
-	class Category0
+	class Category1
 	{
 		name="Scenario";
 		class Attribute0
@@ -507,7 +515,7 @@ class CustomAttributes
 								};
 								class value
 								{
-									items=111;
+									items=112;
 									class Item0
 									{
 										class data
@@ -2062,6 +2070,20 @@ class CustomAttributes
 											value="ace_viewdistance_viewdistanceairvehicle";
 										};
 									};
+									class Item111
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"STRING"
+												};
+											};
+											value="ace_overheating_enabled";
+										};
+									};
 								};
 							};
 						};
@@ -2078,7 +2100,7 @@ class CustomAttributes
 								};
 								class value
 								{
-									items=111;
+									items=112;
 									class Item0
 									{
 										class data
@@ -7074,6 +7096,51 @@ class CustomAttributes
 											};
 										};
 									};
+									class Item111
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"ARRAY"
+												};
+											};
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														class type
+														{
+															type[]=
+															{
+																"BOOL"
+															};
+														};
+														value=0;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														class type
+														{
+															type[]=
+															{
+																"SCALAR"
+															};
+														};
+														value=1;
+													};
+												};
+											};
+										};
+									};
 								};
 							};
 						};
@@ -7146,7 +7213,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=1209;
+		items=1210;
 		class Item0
 		{
 			dataType="Layer";
@@ -84276,6 +84343,10 @@ class Mission
 						isPlayable=1;
 						class Inventory
 						{
+							class binocular
+							{
+								name="Binocular";
+							};
 							class uniform
 							{
 								typeName="U_C_IDAP_Man_TeeShorts_F";
@@ -84285,6 +84356,7 @@ class Mission
 							compass="ItemCompass";
 							watch="ItemWatch";
 							radio="TFAR_anprc152";
+							gps="ItemGPS";
 						};
 					};
 					id=3573;
@@ -84347,6 +84419,10 @@ class Mission
 						isPlayable=1;
 						class Inventory
 						{
+							class binocular
+							{
+								name="Binocular";
+							};
 							class uniform
 							{
 								typeName="U_C_IDAP_Man_TeeShorts_F";
@@ -84356,6 +84432,7 @@ class Mission
 							compass="ItemCompass";
 							watch="ItemWatch";
 							radio="TFAR_anprc152";
+							gps="ItemGPS";
 						};
 					};
 					id=3574;
@@ -84418,6 +84495,10 @@ class Mission
 						isPlayable=1;
 						class Inventory
 						{
+							class binocular
+							{
+								name="Binocular";
+							};
 							class uniform
 							{
 								typeName="U_C_IDAP_Man_TeeShorts_F";
@@ -84427,6 +84508,7 @@ class Mission
 							compass="ItemCompass";
 							watch="ItemWatch";
 							radio="TFAR_anprc152";
+							gps="ItemGPS";
 						};
 					};
 					id=3575;
@@ -84489,6 +84571,10 @@ class Mission
 						isPlayable=1;
 						class Inventory
 						{
+							class binocular
+							{
+								name="Binocular";
+							};
 							class uniform
 							{
 								typeName="U_C_IDAP_Man_TeeShorts_F";
@@ -84498,6 +84584,7 @@ class Mission
 							compass="ItemCompass";
 							watch="ItemWatch";
 							radio="TFAR_anprc152";
+							gps="ItemGPS";
 						};
 					};
 					id=3576;
@@ -84560,6 +84647,10 @@ class Mission
 						isPlayable=1;
 						class Inventory
 						{
+							class binocular
+							{
+								name="Binocular";
+							};
 							class uniform
 							{
 								typeName="U_C_IDAP_Man_TeeShorts_F";
@@ -84569,6 +84660,7 @@ class Mission
 							compass="ItemCompass";
 							watch="ItemWatch";
 							radio="TFAR_anprc152";
+							gps="ItemGPS";
 						};
 					};
 					id=3577;
@@ -84645,6 +84737,10 @@ class Mission
 						isPlayable=1;
 						class Inventory
 						{
+							class binocular
+							{
+								name="Binocular";
+							};
 							class uniform
 							{
 								typeName="U_C_IDAP_Man_TeeShorts_F";
@@ -84654,6 +84750,7 @@ class Mission
 							compass="ItemCompass";
 							watch="ItemWatch";
 							radio="TFAR_anprc152";
+							gps="ItemGPS";
 						};
 					};
 					id=3579;
@@ -84716,6 +84813,10 @@ class Mission
 						isPlayable=1;
 						class Inventory
 						{
+							class binocular
+							{
+								name="Binocular";
+							};
 							class uniform
 							{
 								typeName="U_C_IDAP_Man_TeeShorts_F";
@@ -84725,6 +84826,7 @@ class Mission
 							compass="ItemCompass";
 							watch="ItemWatch";
 							radio="TFAR_anprc152";
+							gps="ItemGPS";
 						};
 					};
 					id=3580;
@@ -84787,6 +84889,10 @@ class Mission
 						isPlayable=1;
 						class Inventory
 						{
+							class binocular
+							{
+								name="Binocular";
+							};
 							class uniform
 							{
 								typeName="U_C_IDAP_Man_TeeShorts_F";
@@ -84796,6 +84902,7 @@ class Mission
 							compass="ItemCompass";
 							watch="ItemWatch";
 							radio="TFAR_anprc152";
+							gps="ItemGPS";
 						};
 					};
 					id=3581;
@@ -84858,6 +84965,10 @@ class Mission
 						isPlayable=1;
 						class Inventory
 						{
+							class binocular
+							{
+								name="Binocular";
+							};
 							class uniform
 							{
 								typeName="U_C_IDAP_Man_TeeShorts_F";
@@ -84867,6 +84978,7 @@ class Mission
 							compass="ItemCompass";
 							watch="ItemWatch";
 							radio="TFAR_anprc152";
+							gps="ItemGPS";
 						};
 					};
 					id=3582;
@@ -84929,6 +85041,10 @@ class Mission
 						isPlayable=1;
 						class Inventory
 						{
+							class binocular
+							{
+								name="Binocular";
+							};
 							class uniform
 							{
 								typeName="U_C_IDAP_Man_TeeShorts_F";
@@ -84938,6 +85054,7 @@ class Mission
 							compass="ItemCompass";
 							watch="ItemWatch";
 							radio="TFAR_anprc152";
+							gps="ItemGPS";
 						};
 					};
 					id=3583;
@@ -85014,6 +85131,10 @@ class Mission
 						isPlayable=1;
 						class Inventory
 						{
+							class binocular
+							{
+								name="Binocular";
+							};
 							class uniform
 							{
 								typeName="U_C_IDAP_Man_TeeShorts_F";
@@ -85023,6 +85144,7 @@ class Mission
 							compass="ItemCompass";
 							watch="ItemWatch";
 							radio="TFAR_anprc152";
+							gps="ItemGPS";
 						};
 					};
 					id=3585;
@@ -85085,6 +85207,10 @@ class Mission
 						isPlayable=1;
 						class Inventory
 						{
+							class binocular
+							{
+								name="Binocular";
+							};
 							class uniform
 							{
 								typeName="U_C_IDAP_Man_TeeShorts_F";
@@ -85094,6 +85220,7 @@ class Mission
 							compass="ItemCompass";
 							watch="ItemWatch";
 							radio="TFAR_anprc152";
+							gps="ItemGPS";
 						};
 					};
 					id=3586;
@@ -85156,6 +85283,10 @@ class Mission
 						isPlayable=1;
 						class Inventory
 						{
+							class binocular
+							{
+								name="Binocular";
+							};
 							class uniform
 							{
 								typeName="U_C_IDAP_Man_TeeShorts_F";
@@ -85165,6 +85296,7 @@ class Mission
 							compass="ItemCompass";
 							watch="ItemWatch";
 							radio="TFAR_anprc152";
+							gps="ItemGPS";
 						};
 					};
 					id=3587;
@@ -85227,6 +85359,10 @@ class Mission
 						isPlayable=1;
 						class Inventory
 						{
+							class binocular
+							{
+								name="Binocular";
+							};
 							class uniform
 							{
 								typeName="U_C_IDAP_Man_TeeShorts_F";
@@ -85236,6 +85372,7 @@ class Mission
 							compass="ItemCompass";
 							watch="ItemWatch";
 							radio="TFAR_anprc152";
+							gps="ItemGPS";
 						};
 					};
 					id=3588;
@@ -85298,6 +85435,10 @@ class Mission
 						isPlayable=1;
 						class Inventory
 						{
+							class binocular
+							{
+								name="Binocular";
+							};
 							class uniform
 							{
 								typeName="U_C_IDAP_Man_TeeShorts_F";
@@ -85307,6 +85448,7 @@ class Mission
 							compass="ItemCompass";
 							watch="ItemWatch";
 							radio="TFAR_anprc152";
+							gps="ItemGPS";
 						};
 					};
 					id=3589;
@@ -85383,6 +85525,10 @@ class Mission
 						isPlayable=1;
 						class Inventory
 						{
+							class binocular
+							{
+								name="Binocular";
+							};
 							class uniform
 							{
 								typeName="U_C_IDAP_Man_TeeShorts_F";
@@ -85392,6 +85538,7 @@ class Mission
 							compass="ItemCompass";
 							watch="ItemWatch";
 							radio="TFAR_anprc152";
+							gps="ItemGPS";
 						};
 					};
 					id=3591;
@@ -85454,6 +85601,10 @@ class Mission
 						isPlayable=1;
 						class Inventory
 						{
+							class binocular
+							{
+								name="Binocular";
+							};
 							class uniform
 							{
 								typeName="U_C_IDAP_Man_TeeShorts_F";
@@ -85463,6 +85614,7 @@ class Mission
 							compass="ItemCompass";
 							watch="ItemWatch";
 							radio="TFAR_anprc152";
+							gps="ItemGPS";
 						};
 					};
 					id=3592;
@@ -85525,6 +85677,10 @@ class Mission
 						isPlayable=1;
 						class Inventory
 						{
+							class binocular
+							{
+								name="Binocular";
+							};
 							class uniform
 							{
 								typeName="U_C_IDAP_Man_TeeShorts_F";
@@ -85534,6 +85690,7 @@ class Mission
 							compass="ItemCompass";
 							watch="ItemWatch";
 							radio="TFAR_anprc152";
+							gps="ItemGPS";
 						};
 					};
 					id=3593;
@@ -85596,6 +85753,10 @@ class Mission
 						isPlayable=1;
 						class Inventory
 						{
+							class binocular
+							{
+								name="Binocular";
+							};
 							class uniform
 							{
 								typeName="U_C_IDAP_Man_TeeShorts_F";
@@ -85605,6 +85766,7 @@ class Mission
 							compass="ItemCompass";
 							watch="ItemWatch";
 							radio="TFAR_anprc152";
+							gps="ItemGPS";
 						};
 					};
 					id=3594;
@@ -85667,6 +85829,10 @@ class Mission
 						isPlayable=1;
 						class Inventory
 						{
+							class binocular
+							{
+								name="Binocular";
+							};
 							class uniform
 							{
 								typeName="U_C_IDAP_Man_TeeShorts_F";
@@ -85676,6 +85842,7 @@ class Mission
 							compass="ItemCompass";
 							watch="ItemWatch";
 							radio="TFAR_anprc152";
+							gps="ItemGPS";
 						};
 					};
 					id=3595;
@@ -85753,6 +85920,10 @@ class Mission
 						isPlayable=1;
 						class Inventory
 						{
+							class binocular
+							{
+								name="Binocular";
+							};
 							class uniform
 							{
 								typeName="U_C_IDAP_Man_TeeShorts_F";
@@ -85762,6 +85933,7 @@ class Mission
 							compass="ItemCompass";
 							watch="ItemWatch";
 							radio="TFAR_anprc152";
+							gps="ItemGPS";
 						};
 					};
 					id=3597;
@@ -85843,6 +86015,10 @@ class Mission
 						isPlayable=1;
 						class Inventory
 						{
+							class binocular
+							{
+								name="Binocular";
+							};
 							class uniform
 							{
 								typeName="U_C_IDAP_Man_TeeShorts_F";
@@ -85852,6 +86028,7 @@ class Mission
 							compass="ItemCompass";
 							watch="ItemWatch";
 							radio="TFAR_anprc152";
+							gps="ItemGPS";
 						};
 					};
 					id=3598;
@@ -85914,6 +86091,10 @@ class Mission
 						isPlayable=1;
 						class Inventory
 						{
+							class binocular
+							{
+								name="Binocular";
+							};
 							class uniform
 							{
 								typeName="U_C_IDAP_Man_TeeShorts_F";
@@ -85923,6 +86104,7 @@ class Mission
 							compass="ItemCompass";
 							watch="ItemWatch";
 							radio="TFAR_anprc152";
+							gps="ItemGPS";
 						};
 					};
 					id=3599;
@@ -85985,6 +86167,10 @@ class Mission
 						isPlayable=1;
 						class Inventory
 						{
+							class binocular
+							{
+								name="Binocular";
+							};
 							class uniform
 							{
 								typeName="U_C_IDAP_Man_TeeShorts_F";
@@ -85994,6 +86180,7 @@ class Mission
 							compass="ItemCompass";
 							watch="ItemWatch";
 							radio="TFAR_anprc152";
+							gps="ItemGPS";
 						};
 					};
 					id=3600;
@@ -86057,6 +86244,10 @@ class Mission
 						isPlayable=1;
 						class Inventory
 						{
+							class binocular
+							{
+								name="Binocular";
+							};
 							class uniform
 							{
 								typeName="U_C_IDAP_Man_TeeShorts_F";
@@ -86066,6 +86257,7 @@ class Mission
 							compass="ItemCompass";
 							watch="ItemWatch";
 							radio="TFAR_anprc152";
+							gps="ItemGPS";
 						};
 					};
 					id=3601;
@@ -91200,7 +91392,7 @@ class Mission
 			};
 			id=3753;
 			type="Land_FinishGate_01_narrow_F";
-			atlOffset=0.21483612;
+			atlOffset=0.21483707;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -100359,6 +100551,17 @@ class Mission
 				};
 				nAttributes=1;
 			};
+		};
+		class Item1209
+		{
+			dataType="Marker";
+			position[]={2549.741,123.356,8520.8359};
+			name="marker_18";
+			text="Start";
+			type="mil_objective";
+			colorName="ColorWEST";
+			id=3984;
+			atlOffset=-8.2440033;
 		};
 	};
 	class Connections
