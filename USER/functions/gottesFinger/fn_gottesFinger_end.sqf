@@ -25,28 +25,24 @@ private _group = _station getVariable [QGVAR(group), grpNull];
 private _timer = _station getVariable [QGVAR(timer), ""];
 private _distances = _station getVariable [QGVAR(guessedDistances), []];
 
-private _stoppedTime = [_timer] call grad_grandPrix_fnc_stopTimer;
-private _totalTime = _stoppedTime;
-
 private _textRows = ["<t align='center' color='#8F1167' size='2'>Zusammenfassung</t>", ""];
 
 _textRows pushBack format ["<t align='left' color='#777777' size='0.9'>Zeit</t><t align='right' font='EtelkaMonospacePro'>%1</t>", [_stoppedTime] call grad_grandPrix_fnc_formatTime];
-
+private _punkte = 0;
 {
-	private _time = _x * GRAD_GRANDPRIX_GOTTESFINGER_DIST_TO_TIME_FACTOR;
-	_textRows pushBack format ["<t align='left' color='#777777' size='0.9'>%1m</t><t align='right' font='EtelkaMonospacePro'>+ %2</t>", _x toFixed 2, [_x] call grad_grandPrix_fnc_formatTime];
-	_totalTime = _totalTime + _time;
+	private _punktzahl = (100 - (round _x -1)) max 0; 
+	_textRows pushBack format ["<t align='left' color='#777777' size='0.9'>%1</t><t align='right' font='EtelkaMonospacePro'>+ %2</t>", _x toFixed 2, _punktzahl];
+	_punkte = _punkte + _punktzahl;
 } forEach _distances;
 
 _textRows pushBack "<t align='right' font='EtelkaMonospacePro'>---------------</t>";
-_textRows pushBack format ["<t align='right' font='EtelkaMonospacePro'>%1</t>", [_totalTime] call grad_grandPrix_fnc_formatTime];
+_textRows pushBack format ["<t align='right' font='EtelkaMonospacePro'>%1</t>", _punkte];
 
 [_station, (_textRows joinString "<br />")] call FUNC_CUSTOM(hintGroup);
 
 [QGVAR(handler), "onEachFrame"] remoteExec ["BIS_fnc_removeStackedEventHandler", _group];
 
-[_group, _totalTime, 90, 1000, "gottesFinger"] call grad_grandPrix_fnc_addTime;
+[_group, _punkte, "gottesFinger"] call grad_grandPrix_fnc_addPoints;
 
 _station setVariable [QGVAR(group), nil, true];
 _station setVariable [QGVAR(running), nil, true];
-_station setVariable [QGVAR(timer), nil, true];

@@ -29,7 +29,6 @@ if !(isServer) exitWith {
 
 _station setVariable [QGVAR(running), true, true];
 _station setVariable [QGVAR(group), _group, true];
-_station setVariable [QGVAR(timer), ([] call grad_grandPrix_fnc_startTimer), true];
 
 // set random positions
 private _availablePositions = _station getVariable [QGVAR(availablePositions), []];

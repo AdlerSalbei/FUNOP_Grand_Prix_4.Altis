@@ -1,8 +1,8 @@
 params ["_target"];
 
 private _action = [
-    "teleport_toCarrier",
-    "Planke des Todes",
+    "teleport_backFromZeus",
+    "Teleport zurück",
     "",
     {
 		cutText ["", "BLACK", 0.1];

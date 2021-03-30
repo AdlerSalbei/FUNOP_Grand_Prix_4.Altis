@@ -22,4 +22,4 @@ if !((_unit getVariable ["Grad_grandPrix_plank_pullhight", -1]) isEqualTo -1) ex
 
 ["grad_grandPrix_plank_jumpersUp", [_unit]] call CBA_fnc_serverEvent;
 
-playMusic "hinunter_bis_auf_eins";
+playMusic "thunderstruck";
