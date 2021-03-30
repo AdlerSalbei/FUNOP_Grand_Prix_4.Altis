@@ -37,6 +37,8 @@ if !(isNil "_info") then {
     ["grad_grandPrix_setGroup", [player, _info]] call CBA_fnc_serverEvent;
 };
 
+player allowDamage false;
+
 player addEventHandler ["GetIn", {
 	params ["_vehicle"];
 
