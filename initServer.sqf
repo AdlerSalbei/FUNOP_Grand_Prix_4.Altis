@@ -189,3 +189,5 @@ private _allRaceGates = [
 ];
 
 missionNamespace setVariable ["GRAD_GrandPrix_allRaceGates", _allRaceGates, true];
+
+setTimeMultiplier 1.5;

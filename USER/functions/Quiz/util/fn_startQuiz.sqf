@@ -31,7 +31,7 @@ private _occupiedPodiums = [];
 {
 	_x setVelocity [0,0,0];
 	_x setPos (_allPositions#_foreachIndex);
-	[{_this setDir (_this getDir GRAD_quiz_podium)}, _x, 0.5] call CBA_fnc_waitAndExecute;
+	[_x, _x getDir GRAD_quiz_podium] remoteExec ["setDir", _x];
 	_occupiedPodiums pushBackUnique (_allPodiums#_foreachIndex);
 } forEach (units _group);
 

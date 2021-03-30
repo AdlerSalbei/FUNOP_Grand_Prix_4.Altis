@@ -25,14 +25,18 @@ sleep 2;
 
 private _tractorPos = getPos GRAD_quiz_tractorSpawn;
 _tractorPos set [2, -3];
-private _tractorArr = [[0,0,20], _tractorPos getDir _unit, "C_Tractor_01_F", civilian] call BIS_fnc_spawnVehicle;
-_tractorArr params ["_tractor", "_crew", "_group"];
+// private _tractorArr = [[0,0,20], _tractorPos getDir _unit, "C_Tractor_01_F", civilian] call BIS_fnc_spawnVehicle;
+private _tractor = createVehicle ["C_Tractor_01_F", _tractorPos, [], 0, "CAN_COLLIDE"];
+_tractor setDir (_tractorPos getDir _unit);
+private _group = createVehicleCrew _tractor;
+private _crew = driver _tractor;
+_tractorArr = [_tractor, _crew, _group];
 
 {
 	// Current result is saved in variable _x
 	[_x, false] remoteExec ["allowDamage", _x];
 	_x enableSimulationGlobal false;
-} forEach _crew + [_tractor];
+} forEach [_crew, _tractor];
 
 [{ 
 	_args params ["_tractorArr", "_tractorPos"];
@@ -50,7 +54,7 @@ waitUntil { ((getPosATL _tractor)#2) >= 0 };
 {
 	// Current result is saved in variable _x
 	_x enableSimulationGlobal true;
-} forEach _crew + [_tractor];
+} forEach [_crew, _tractor];
 
 sleep 3;
 _tractor engineOn true;
@@ -68,6 +72,6 @@ waitUntil { (((getPosASL _tractor)#2) < 5) || !(alive _tractor) };
 
 {
 	deleteVehicle _x;
-} forEach (_crew + [_tractor]);
+} forEach [_crew, _tractor];
 
 [_unit] call GRAD_GrandPrix_fnc_quizAfterExit;

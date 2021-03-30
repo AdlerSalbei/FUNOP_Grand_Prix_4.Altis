@@ -30,6 +30,11 @@ private _allQuestions = [
 	private _occupiedPodiums = missionNamespace getVariable ["GRAD_quizOccupiedPodiums", []];
 	private _numberStr = str _number;
 
+	private _allInstructors = [];
+	{
+		_allInstructors pushBackUnique (getAssignedCuratorUnit _x);
+	} forEach allCurators;
+
 	[[_numberStr, _station], {
 		params ["_numberStr", "_station"];
 		private _action = [
@@ -50,7 +55,7 @@ private _allQuestions = [
 			[_numberStr]
 		] call ace_interact_menu_fnc_createAction;
 		[_station, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
-	}] remoteExec ["call", _moderator];
+	}] remoteExec ["call", _allInstructors];
 
 	waitUntil { missionNamespace getVariable ["GRAD_quizQuestion" + _numberStr + "Active", false] };
 

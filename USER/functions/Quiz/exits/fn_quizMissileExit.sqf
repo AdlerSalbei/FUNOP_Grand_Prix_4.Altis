@@ -21,7 +21,8 @@ private _pos = getPos _unit;
 sleep 6;
 _pos set [2, (_pos#2) + 0.1];
 _unit setPos _pos;
-_unit setVelocity [0,0,55];
+[_unit, [0,0, 55]] remoteExec ["setVelocity", _unit];
+// _unit setVelocity [0,0,55];
 
 waitUntil { (((getPosASL _unit) # 2) <= 0) || (isTouchingGround _unit)  };
 
