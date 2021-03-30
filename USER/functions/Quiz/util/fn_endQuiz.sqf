@@ -1,4 +1,4 @@
-params ["_station", "_group", "_allQuestions", "_moderator"];
+params ["_station", "_group", "_allQuestions", "_closeInstructors"];
 
 {
 	// Current result is saved in variable _x
@@ -24,7 +24,7 @@ private _result = format[
 	_pointsPerQuestion,
 	_points
 ];
-[_result] remoteExec ["hint", (units _group) + [_moderator]];
+[_result] remoteExec ["hint", (units _group) + _closeInstructors];
 
 missionNamespace setVariable ["GRAD_quizCorrectAnswers", 0, true];
 missionNamespace setVariable ["GRAD_quizStationIsRunning", false, true];

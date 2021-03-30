@@ -101,7 +101,7 @@ private _allPoints = [];
         _x params [["_name", ""], ["_var", []]];
         private _pointsFound = false;
         {
-            _x params ["_stage", "_points"];
+            _x params [["_stage", ""], ["_points", 0]];
             if (_stage isEqualTo _rowStage) then {
                 _row pushBack (str _points);
                 _pointsFound = true;

@@ -47,9 +47,9 @@ for [{_i=1;}, {_i<=5}, {_i=_i+1;}] do {
 
 	{
 		private _pos = (_vehicle getRelPos [8, 0]) findEmptyPosition [0, 4, typeOf _x];
-		_x setVelocity [0,0,0];
+		[_x, [0,0,0]] remoteExec ["setVelocity", _x];
 		_x setPos _pos;
-		_x setDir (_x getDir _vehicle);
+		[_x, (_x getDir _vehicle)] remoteExec ["setDir", _x];
 		[_x, false] remoteExec ["allowDamage", _x];
 	} foreach _allDrivers;
 
@@ -88,7 +88,7 @@ for [{_i=1;}, {_i<=5}, {_i=_i+1;}] do {
 		moveOut (_x#0);
 	} forEach (fullCrew _vehicle);
 
-	sleep 0.3;
+	sleep 0.5;
 
 	deleteVehicle _vehicle;
 

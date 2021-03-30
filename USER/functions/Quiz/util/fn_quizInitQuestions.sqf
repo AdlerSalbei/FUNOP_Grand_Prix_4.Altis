@@ -30,9 +30,11 @@ private _allQuestions = [
 	private _occupiedPodiums = missionNamespace getVariable ["GRAD_quizOccupiedPodiums", []];
 	private _numberStr = str _number;
 
-	private _allInstructors = [];
+	private _closeInstructors = [];
 	{
-		_allInstructors pushBackUnique (getAssignedCuratorUnit _x);
+		if ((_x distance _station) <= 150) then {
+			_closeInstructors pushBackUnique (getAssignedCuratorUnit _x);
+		}
 	} forEach allCurators;
 
 	[[_numberStr, _station], {
@@ -55,7 +57,7 @@ private _allQuestions = [
 			[_numberStr]
 		] call ace_interact_menu_fnc_createAction;
 		[_station, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
-	}] remoteExec ["call", _allInstructors];
+	}] remoteExec ["call", _closeInstructors];
 
 	waitUntil { missionNamespace getVariable ["GRAD_quizQuestion" + _numberStr + "Active", false] };
 
@@ -91,10 +93,10 @@ private _allQuestions = [
 	[[_station, _numberStr], {
 		params ["_station", "_numberStr"];
 		[_station, 0, ["ACE_MainActions", "Start_Question_" + _numberStr]] call ace_interact_menu_fnc_removeActionFromObject;
-	}] remoteExec ["call", _moderator];
+	}] remoteExec ["call", 0];
 
 	private _timeToAnswer = serverTime + 90;
-	[90] remoteExec ["GRAD_GrandPrix_fnc_quizAnswerCountdown", _activeContestants + [_moderator]];
+	[90] remoteExec ["GRAD_GrandPrix_fnc_quizAnswerCountdown", _activeContestants + _closeInstructors];
 
 	waitUntil { (missionNamespace getVariable ["GRAD_quizAnswerLoggedIn", false]) || (serverTime > _timeToAnswer) };
 	missionNamespace setVariable ["GRAD_quizAnswerLoggedIn", true, true];
@@ -111,11 +113,11 @@ private _allQuestions = [
 		} forEach _occupiedPodiums;
 	}] remoteExec ["call", _activeContestants];
 
-	"" remoteExec ["hintSilent", _activeContestants + [_moderator]];
+	"" remoteExec ["hintSilent", _activeContestants + _closeInstructors];
 	
 	private _answeredBy = missionNamespace getVariable ["GRAD_quizAnsweredBy", objNull];
 	if !(isNull _answeredBy) then {
-		[format["%1 hat '%2%3' als Antwort eingeloggt!", name _answeredBy, missionNamespace getVariable ["GRAD_quizAnswerGiven", ""], _unit]] remoteExec ["hint", _activeContestants + [_moderator]];
+		[format["%1 hat '%2%3' als Antwort eingeloggt!", name _answeredBy, missionNamespace getVariable ["GRAD_quizAnswerGiven", ""], _unit]] remoteExec ["hint", _activeContestants + _closeInstructors];
 	};
 
 	private _answerCorrect = missionNamespace getVariable ["GRAD_quizAnswerCorrect", false];
@@ -155,7 +157,7 @@ private _allQuestions = [
 		[_unfortunateContestant] spawn GRAD_GrandPrix_fnc_quizManageExits;
 	};
 
-	"" remoteExec ["hintSilent", (units _group) + [_moderator]];
+	"" remoteExec ["hintSilent", (units _group) + _closeInstructors];
 	waitUntil { missionNamespace getVariable ["GRAD_quizExitDone", false] };
 	missionNamespace setVariable ["GRAD_quizAnswerLoggedIn", false, true];
 	missionNamespace setVariable ["GRAD_quizQuestion" + _numberStr + "Active", false, true];
@@ -163,4 +165,4 @@ private _allQuestions = [
 
 sleep 2;
 private _moderator = missionNamespace getVariable ["GRAD_quizModerator", objNull];
-[_station, _group, _allQuestions, _moderator] call GRAD_GrandPrix_fnc_endQuiz;
+[_station, _group, _allQuestions, _closeInstructors] call GRAD_GrandPrix_fnc_endQuiz;

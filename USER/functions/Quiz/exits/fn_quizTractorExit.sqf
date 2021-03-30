@@ -68,7 +68,8 @@ _tractor setVelocity ((getPos _tractor) vectorFromTo (getPos _unit) vectorMultip
 	_x hideObjectGlobal true;
 } forEach _walls;
 
-waitUntil { (((getPosASL _tractor)#2) < 5) || !(alive _tractor) };
+private _timeout = serverTime + 20;
+waitUntil { (((getPosASL _tractor)#2) < 5) || !(alive _tractor) || (serverTime > _timeout)};
 
 {
 	deleteVehicle _x;

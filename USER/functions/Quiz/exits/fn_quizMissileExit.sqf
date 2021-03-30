@@ -24,7 +24,8 @@ _unit setPos _pos;
 [_unit, [0,0, 55]] remoteExec ["setVelocity", _unit];
 // _unit setVelocity [0,0,55];
 
-waitUntil { (((getPosASL _unit) # 2) <= 0) || (isTouchingGround _unit)  };
+private _timeout = serverTime + 20;
+waitUntil { (((getPosASL _unit) # 2) <= 0) || (isTouchingGround _unit) || (serverTime > _timeout) };
 
 sleep 2;
 

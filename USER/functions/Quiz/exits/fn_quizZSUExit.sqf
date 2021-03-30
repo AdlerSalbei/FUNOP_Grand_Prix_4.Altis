@@ -36,7 +36,8 @@ _zsu reveal [_unit, 4];
 
 sleep 3.5;
 
-while { !(_unit getVariable ["ACE_isUnconscious", false]) } do {
+private _timeout = serverTime + 20;
+while { !(_unit getVariable ["ACE_isUnconscious", false]) && (serverTime < _timeout) } do {
 	[_zsu, _muzzle] call BIS_fnc_fire;
 	sleep 0.1;
 };
