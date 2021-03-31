@@ -29,9 +29,10 @@ private _allPodiums = [GRAD_quiz_answerPodium_1, GRAD_quiz_answerPodium_2, GRAD_
 private _occupiedPodiums = [];
 
 {
-	_x setVelocity [0,0,0];
+	[_x, [0,0,0]] remoteExec ["setVelocity", _x];
 	_x setPos (_allPositions#_foreachIndex);
-	[_x, _x getDir GRAD_quiz_podium] remoteExec ["setDir", _x];
+	private _dir = _x getDir GRAD_quiz_podium;
+	[_x, _dir] remoteExec ["setDir", _x];
 	_occupiedPodiums pushBackUnique (_allPodiums#_foreachIndex);
 } forEach (units _group);
 

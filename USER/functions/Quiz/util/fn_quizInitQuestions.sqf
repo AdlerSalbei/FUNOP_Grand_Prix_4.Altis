@@ -13,6 +13,8 @@ private _allQuestions = [
 	// ["eigentlicheFrage", Zahl, ["richtige Antwort(en)"], ["Art der Frage: Antwort als String, Zahl oder MultipleChoice"], "optionale Einheiten der Lösung (z.B. Meter)"]
 ];
 
+private _closeInstructors = [];
+
 {
 	_x params ["_question", "_number", "_answer", "_type", "_unit"];
 
@@ -30,9 +32,8 @@ private _allQuestions = [
 	private _occupiedPodiums = missionNamespace getVariable ["GRAD_quizOccupiedPodiums", []];
 	private _numberStr = str _number;
 
-	private _closeInstructors = [];
 	{
-		if ((_x distance _station) <= 150) then {
+		if ((_x distance2d _station) <= 150) then {
 			_closeInstructors pushBackUnique (getAssignedCuratorUnit _x);
 		}
 	} forEach allCurators;

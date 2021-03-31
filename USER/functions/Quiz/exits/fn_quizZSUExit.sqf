@@ -1,6 +1,6 @@
 params ["_unit"];
 
-if !(canSuspend) exitWith { _this spawn GRAD_GrandPrix_fnc_quizBrrrtExit; };
+if !(canSuspend) exitWith { _this spawn GRAD_GrandPrix_fnc_quizZSUExit; };
 
 private _unitPos = getPos _unit;
 _unitPos set [2, (_unitPos#2) + 0.1];
@@ -10,12 +10,12 @@ _unit setPos _unitPos;
 
 waitUntil { ((velocity _unit)#2) <= 0 };
 
-[_unit] spawn {
+[_unit, {
 	params ["_unit"];
 	while { !(_unit getVariable ["ACE_isUnconscious", false]) } do {
 		_unit setVelocity [0,0,0];
 	};
-};
+}] remoteExec ["spawn", _unit];
 
 private _pos = getPosATL GRAD_quiz_ZSUspawn;
 private _zsu = createVehicle ["rhs_zsu234_aa", _pos, [], 0, "CAN_COLLIDE"];

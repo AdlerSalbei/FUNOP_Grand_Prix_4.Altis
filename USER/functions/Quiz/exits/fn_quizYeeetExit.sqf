@@ -14,6 +14,8 @@ _unit setPos _blub;
 [_unit, [0, 0, 15]] remoteExec ["setVelocity", _unit];
 // _unit setVelocity [0,0,15];
 
+sleep 1;
+
 waitUntil { ((velocity _unit) # 2) <= 0 };
 
 [_unit, [-130, -130, 50]] remoteExec ["setVelocity", _unit];
@@ -21,8 +23,10 @@ waitUntil { ((velocity _unit) # 2) <= 0 };
 
 waitUntil { _unit inArea GRAD_quiz_yeeetTrigger || ((_unit getVariable ["ACE_isUnconscious", false])) };
 
-_bomb = createVehicle["SatchelCharge_Remote_Ammo", getPos _unit, [], 0, "CAN_COLLIDE"];
-_bomb setDamage 1;
+if (_unit inArea GRAD_quiz_yeeetTrigger) then {
+	_bomb = createVehicle["SatchelCharge_Remote_Ammo", getPos _unit, [], 0, "CAN_COLLIDE"];
+	_bomb setDamage 1;
+};
 
 private _timeout = serverTime + 20;
 waitUntil { (((getPosASL _unit) # 2) < 0) || (serverTime > _timeout) };
