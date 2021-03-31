@@ -8,3 +8,5 @@ enableSaving [false, false];
 
 // SCRIPTS =====================================================================
 [] execVM "USER\userInit.sqf";
+
+ace_hearing_disableVolumeUpdate = true;

@@ -46,3 +46,8 @@ _textRows pushBack format ["<t align='right' font='EtelkaMonospacePro'>%1</t>", 
 
 _station setVariable [QGVAR(group), nil, true];
 _station setVariable [QGVAR(running), nil, true];
+
+5 fadeMusic 0;
+[{
+	playMusic "";
+}, [], 5] call CBA_fnc_waitAndExecute;

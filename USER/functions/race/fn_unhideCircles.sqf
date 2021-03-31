@@ -164,16 +164,16 @@ private _array = [_array1, _array2, _array3, _array4, _array5] select _num;
 	_trigger triggerAttachVehicle [_vehicle];
 	_trigger setTriggerStatements ["this", "", ""];
 	_trigger setTriggerInterval 0;
-	_x hideObjectGlobal false;
+	_x hideObject false;
 	[{
 		params ["_trigger", "_vehicle"];
 		triggerActivated _trigger || !(alive _vehicle)
 	},{
 		params ["_trigger", "_vehicle", "_number", "_arrayNum", "_obj"];
 
-		if !(alive _vehicle) exitWith { deleteVehicle _trigger; _obj hideObjectGlobal true;};
+		if !(alive _vehicle) exitWith { deleteVehicle _trigger; _obj hideObject true;};
 		[format['Tor %1 von %2 wurde passiert!', _number, _arrayNum]] remoteExec ['hintSilent', player];
-		_obj hideObjectGlobal true;
+		_obj hideObject true;
 	},[_trigger, _vehicle, _forEachIndex + 1, count _array, _x]] call CBA_fnc_waitUntilAndExecute;	
 } forEach _array;
 

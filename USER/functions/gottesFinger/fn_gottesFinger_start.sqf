@@ -40,3 +40,6 @@ _station setVariable [QGVAR(positions), _randomSelectedPositions, true];
 [_station, remoteExecutedOwner] call FUNC_CUSTOM(prepNextPosition);
 
 [_station, "<t align='center' color='#66AA66' size='2'>Zeit läuft</t>"] call FUNC_CUSTOM(hintGroup);
+
+0 fadeMusic 0.7;
+playMusic "ameno";

@@ -2,15 +2,21 @@ params ["_obj"];
 
 private _action = [
 	"race_action_3", 
-	"Reset Cars", 
+	"Reset Planes", 
 	"", 
 	{
 		[trigger_resetPlanes] call grad_grandPrix_fnc_clearZone;
 		{
 			private _veh = createVehicle ["C_Plane_Civil_01_racing_F", _x, [], 0, "CAN_COLLIDE"];
 			_veh setPos _x;
-			_veh setDir 188.497;
+			_veh setDir 116.152;
 			_veh setVariable ["grad_gradPrix4_planePathNum", (_forEachIndex +1), true];
+			_veh addEventHandler ["Local", { 
+				params ["_entity", "_isLocal"];
+				if (_isLocal) then {
+				_entity allowDamage false;
+				}; 
+			}];
 		}forEach [
 			[8445.54,3997.17,0],
 			[8452,4010,0],

@@ -8,7 +8,7 @@ _unit setVariable ["grad_grandPrix_race_timerID", -1];
 private _time = [_id] call grad_grandPrix_fnc_stopTimer;
 
 private _results = missionNamespace getVariable ["grad_grandPrix_race_results", []];
-_results pushBackUnique [_unit, _time];
+_results pushBackUnique [name _unit, _time];
 missionNamespace setVariable ["grad_grandPrix_race_results", _results, true];
 
 //Todo: Show time to racer

@@ -1,12 +1,12 @@
 if (didJIP) then {
-    [player] remoteExec ["grad_common_fnc_addJipToZeus",2,false];
+    [ace_player] remoteExec ["grad_common_fnc_addJipToZeus",2,false];
 };
 
 // ["InitializePlayer", [player,true]] call BIS_fnc_dynamicGroups;
-grad_template_ratingEH = player addEventHandler ["HandleRating",{0}];
+grad_template_ratingEH = ace_player addEventHandler ["HandleRating",{0}];
 
 ["grad_grandPrix_plank_result", {
-    [] call grad_grandPrix_fnc_plankGroupResult;
+    [_this] call grad_grandPrix_fnc_plankGroupResult;
 }] call CBA_fnc_addEventHandler;
 
 ["grad_grandPrix_race_triggerCountdown", {
@@ -29,27 +29,25 @@ grad_template_ratingEH = player addEventHandler ["HandleRating",{0}];
 }] call CBA_fnc_addEventHandler;
 
 ["grad_grandPrix_race_result", {
-    [] call grad_grandPrix_fnc_results;
+    [_this] call grad_grandPrix_fnc_results;
 }] call CBA_fnc_addEventHandler;
-
-private _info = uiNamespace getVariable "grad_grandPrix_transferGroupInfo";
-if !(isNil "_info") then {
-    ["grad_grandPrix_setGroup", [player, _info]] call CBA_fnc_serverEvent;
-};
-
-player allowDamage false;
-
-player addEventHandler ["GetIn", {
-	params ["_vehicle"];
-
-    player allowDamage false;
-    if (local _vehicle) then {
-        _vehicle allowDamage false;
+[{
+    private _info = uiNamespace getVariable "grad_grandPrix_transferGroupInfo";
+    if !(isNil "_info") then {
+        ["grad_grandPrix_setGroup", [ace_player, _info]] call CBA_fnc_serverEvent;
     };
+}, []] call CBA_fnc_execNextFrame;
+
+ace_player allowDamage false;
+
+ace_player addEventHandler ["GetInMan", {
+	params ["_unit", "_role", "_vehicle", "_turret"];
+    ace_player allowDamage false;
+    [_vehicle, false] remoteExec ["allowDamage", _vehicle];
 }];
 
-player addEventHandler ["GetOut", {
-	params ["_vehicle"];
+ace_player addEventHandler ["GetOutMan", {
+	params ["_unit", "_role", "_vehicle", "_turret"];
 
-    player allowDamage false;
+    ace_player allowDamage false;
 }];

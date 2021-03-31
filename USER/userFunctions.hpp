@@ -18,6 +18,8 @@ class grad_grandPrix
 		class gottesFinger_openDisplay {};
 		class gottesFinger_prepNextPosition {};
 		class gottesFinger_start {};
+		class gottesFinger_teleportBack {};
+		class gottesFinger_teleportHin {};
   	};
 	class race
 	{
@@ -33,6 +35,9 @@ class grad_grandPrix
 		class startTimeRecording {};
 		class stopTimeRecording {};
 		class unhideCircles {};
+		class formatTime {};
+		class startTimer {};
+		class stopTimer {};
   	};
 	class planke
 	{
