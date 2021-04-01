@@ -111,4 +111,11 @@ class grad_grandPrix
 		file = "USER\functions\Hangar";
 		class openHangar {};
 	};
+
+	class fireworks {
+		file = "USER\functions\fireworks";
+		class startFireworks {};
+	};
 };
+
+#include ".\GRAD_fireworks\cfgFunctions.hpp"

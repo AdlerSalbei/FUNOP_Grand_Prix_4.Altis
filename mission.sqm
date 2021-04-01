@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=1;
+	toggles=9;
 	class ItemIDProvider
 	{
-		nextID=4059;
+		nextID=4071;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=806;
+		nextID=830;
 	};
 	class Camera
 	{
-		pos[]={635.53168,106.97009,5102.6895};
-		dir[]={-0.82375646,-0.3163518,0.47047609};
-		up[]={-0.27470514,0.9486419,0.15689367};
-		aside[]={0.49594709,-5.2154064e-008,0.86835343};
+		pos[]={4922.0469,86.418655,3891.5581};
+		dir[]={-0.67731559,-0.27671558,-0.68168557};
+		up[]={-0.19503976,0.96095276,-0.19629855};
+		aside[]={-0.7093851,-9.1269612e-008,0.70483887};
 	};
 };
 binarizationWanted=0;
@@ -100,7 +100,8 @@ addons[]=
 	"rhsgref_c_canoe",
 	"A3_Boat_F_Gamma_Boat_Civil_01",
 	"acex_sitting",
-	"CUP_Buildings_Config"
+	"CUP_Buildings_Config",
+	"A3_Structures_F_Training"
 };
 class AddonsMetaData
 {
@@ -7581,7 +7582,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=1251;
+		items=1263;
 		class Item0
 		{
 			dataType="Layer";
@@ -102577,6 +102578,223 @@ class Mission
 			};
 			id=4057;
 			atlOffset=0.024337769;
+		};
+		class Item1251
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4768.3071,5.0969052,3663.75};
+				angles[]={6.2791882,0.69160414,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=4059;
+			type="Land_Obstacle_Ramp_F";
+			atlOffset=-0.6869998;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item1252
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4841.0952,1.6527522,3598.345};
+			};
+			side="Empty";
+			class Attributes
+			{
+				name="GRAD_GrandPrix_fireworkPos_1";
+			};
+			id=4060;
+			type="Land_HelipadEmpty_F";
+			atlOffset=0.40916657;
+		};
+		class Item1253
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4855.0288,5.7187405,3667.0757};
+			};
+			side="Empty";
+			class Attributes
+			{
+				name="GRAD_GrandPrix_fireworkPos_2";
+			};
+			id=4061;
+			type="Land_HelipadEmpty_F";
+			atlOffset=0.40916634;
+		};
+		class Item1254
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4787.126,13.75893,3760.3342};
+			};
+			side="Empty";
+			class Attributes
+			{
+				name="GRAD_GrandPrix_fireworkPos_3";
+			};
+			id=4062;
+			type="Land_HelipadEmpty_F";
+			atlOffset=0.40916634;
+		};
+		class Item1255
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4776.73,25.459091,3587.9536};
+			};
+			side="Empty";
+			class Attributes
+			{
+				name="GRAD_GrandPrix_fireworkPos_4";
+			};
+			id=4063;
+			type="Land_HelipadEmpty_F";
+			atlOffset=0.40916634;
+		};
+		class Item1256
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4786.6753,11.923599,3637.7441};
+			};
+			side="Empty";
+			class Attributes
+			{
+				name="GRAD_GrandPrix_fireworkPos_5";
+			};
+			id=4064;
+			type="Land_HelipadEmpty_F";
+			atlOffset=0.40916634;
+		};
+		class Item1257
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4784.2544,4.4970636,3676.5872};
+			};
+			side="Empty";
+			class Attributes
+			{
+				name="GRAD_GrandPrix_fireworkPos_6";
+			};
+			id=4065;
+			type="Land_HelipadEmpty_F";
+			atlOffset=0.40916681;
+		};
+		class Item1258
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4856.9946,14.620985,3703.7419};
+			};
+			side="Empty";
+			class Attributes
+			{
+				name="GRAD_GrandPrix_fireworkPos_7";
+			};
+			id=4066;
+			type="Land_HelipadEmpty_F";
+			atlOffset=0.40916634;
+		};
+		class Item1259
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4648.3281,3.435281,3639.9429};
+			};
+			side="Empty";
+			class Attributes
+			{
+				name="GRAD_GrandPrix_fireworkPos_8";
+			};
+			id=4067;
+			type="Land_HelipadEmpty_F";
+			atlOffset=0.33315635;
+		};
+		class Item1260
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4673.1099,4.717495,3731.1304};
+			};
+			side="Empty";
+			class Attributes
+			{
+				name="GRAD_GrandPrix_fireworkPos_9";
+			};
+			id=4068;
+			type="Land_HelipadEmpty_F";
+			atlOffset=0.40916634;
+		};
+		class Item1261
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4724.2642,15.374255,3760.0652};
+			};
+			side="Empty";
+			class Attributes
+			{
+				name="GRAD_GrandPrix_fireworkPos_10";
+			};
+			id=4069;
+			type="Land_HelipadEmpty_F";
+			atlOffset=0.40916634;
+		};
+		class Item1262
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4725.313,11.165171,3615.887};
+			};
+			side="Empty";
+			class Attributes
+			{
+				name="GRAD_GrandPrix_fireworkPos_11";
+			};
+			id=4070;
+			type="Land_HelipadEmpty_F";
+			atlOffset=0.4090004;
 		};
 	};
 	class Connections

@@ -16,3 +16,5 @@ class jumpTPSound
 	sound[]	= {"\data\beam.ogg", db + 0, 1.0 };
 	titles[] = {};
 };
+
+#include ".\GRAD_fireworks\cfgSounds.hpp"
