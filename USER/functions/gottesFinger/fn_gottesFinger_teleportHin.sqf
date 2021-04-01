@@ -2,7 +2,7 @@ params ["_target"];
 
 private _action = [
     "teleport_toZeus",
-    "Gottes Finger",
+    "Zeus dem sein Zeiger",
     "",
     {
 		cutText ["", "BLACK", 0.1];
@@ -11,7 +11,7 @@ private _action = [
 			params ["_unit"];
 
 			playSound "jumpTPSound";
-			_unit setPos ((getPosATL tpGottesFinger) vectorAdd [(random 6) -4, (random 6) -4, 0]);
+			_unit setPos ((getPosATL tpGottesFinger) vectorAdd [(random 4) -2, (random 4) -2, 0]);
 			
 			cutText ["", "BLACK IN", 3];
 		},[_player], 0.3] call CBA_fnc_waitAndExecute;

@@ -8,7 +8,7 @@ class EditorData
 	toggles=9;
 	class ItemIDProvider
 	{
-		nextID=4071;
+		nextID=4076;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=830;
+		nextID=842;
 	};
 	class Camera
 	{
-		pos[]={4922.0469,86.418655,3891.5581};
-		dir[]={-0.67731559,-0.27671558,-0.68168557};
-		up[]={-0.19503976,0.96095276,-0.19629855};
-		aside[]={-0.7093851,-9.1269612e-008,0.70483887};
+		pos[]={5647.7158,40.652634,5131.1113};
+		dir[]={0.80090529,-0.56275117,0.20462002};
+		up[]={0.5452404,0.82662356,0.13930161};
+		aside[]={0.24753667,1.3204408e-007,-0.96888137};
 	};
 };
 binarizationWanted=0;
@@ -80446,13 +80446,13 @@ class Mission
 		class Item817
 		{
 			dataType="Marker";
-			position[]={3857.802,26.934999,3531.7161};
+			position[]={3899.8457,27.861328,3534.5535};
 			name="marker_17";
 			text="Zeus dem sein Zeiger";
 			type="mil_objective";
 			colorName="ColorWEST";
 			id=3389;
-			atlOffset=-8.2436352;
+			atlOffset=-8.30867;
 		};
 		class Item818
 		{
@@ -100965,7 +100965,7 @@ class Mission
 			class Attributes
 			{
 				condition="call{this && (vehicle player) in thisList}";
-				onActivation="call{{" \n "if (local _x) then {" \n "(vehicle _x) setVelocityModelSpace (velocityModelSpace (vehicle _x) vectorAdd [0,10,6]);" \n "};" \n "} forEach thisList;}";
+				onActivation="call{{" \n "if (local _x) then {" \n "(vehicle _x) setVelocityModelSpace (velocityModelSpace (vehicle _x) vectorAdd [0,8,6]);" \n "};" \n "} forEach thisList;}";
 				sizeA=15;
 				sizeB=8;
 				sizeC=5;

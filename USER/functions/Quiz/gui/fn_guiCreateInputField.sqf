@@ -19,7 +19,6 @@ _edit ctrlAddEventHandler ["KeyDown", {
     private _index = 0;
     while {_index < count _value} do {
         private _char = _value select _index;
-		systemChat str _char;
 
         if ((_char isEqualTo 44) || (_char isEqualTo 46)) then {			
 			private _pointIndex = _value find _char;

@@ -27,7 +27,7 @@ private _distances = _station getVariable [QGVAR(guessedDistances), []];
 
 private _textRows = ["<t align='center' color='#8F1167' size='2'>Zusammenfassung</t>", ""];
 
-_textRows pushBack format ["<t align='left' color='#777777' size='0.9'>Zeit</t><t align='right' font='EtelkaMonospacePro'>%1</t>", [_stoppedTime] call grad_grandPrix_fnc_formatTime];
+_textRows pushBack "<t align='left' color='#777777' size='0.9'>Distanze:</t>";
 private _punkte = 0;
 {
 	private _punktzahl = (100 - (round _x -1)) max 0; 
@@ -42,7 +42,7 @@ _textRows pushBack format ["<t align='right' font='EtelkaMonospacePro'>%1</t>", 
 
 [QGVAR(handler), "onEachFrame"] remoteExec ["BIS_fnc_removeStackedEventHandler", _group];
 
-[_group, _punkte, "gottesFinger"] call grad_grandPrix_fnc_addPoints;
+[_group, _punkte, "Zeus dem sein Zeiger"] call grad_grandPrix_fnc_addPoints;
 
 _station setVariable [QGVAR(group), nil, true];
 _station setVariable [QGVAR(running), nil, true];

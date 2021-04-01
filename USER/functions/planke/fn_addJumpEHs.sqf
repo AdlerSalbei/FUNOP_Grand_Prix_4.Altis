@@ -1,12 +1,12 @@
 params ["_unit"];
 
-if !((_unit getVariable ["Grad_grandPrix_plank_pullhight", -1]) isEqualTo -1) exitWith {};
+if !((_unit getVariable ["Grad_grandPrix_plank_pullHeight", -1]) isEqualTo -1) exitWith {};
 
 [_unit, "GetInMan", {
 	params ["_unit"];
 
 	_unit removeEventHandler ["GetInMan", _thisID];
-	_unit setVariable ["Grad_grandPrix_plank_pullhight", (getPosASL _unit) select 2];
+	_unit setVariable ["Grad_grandPrix_plank_pullHeight", (getPosASL _unit) select 2];
 
 	["grad_grandPrix_plank_jumpersUp", [_unit]] call CBA_fnc_serverEvent;
 }] call CBA_fnc_addBISEventHandler;

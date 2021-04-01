@@ -11,46 +11,8 @@ missionNamespace setVariable ["GRAD_quiz_allContestantPositionMarkers", [GRAD_qu
 east setFriend [west, 1];
 west setFriend [east, 1];
 
-["grad_grandPrix_setGroup", {
-    params ["_player", "_info"];
-    private _groupInfo = missionNamespace getVariable ["grad_grandPrix_groupInfo", []];
-
-    _info params ["_ID", "_oldGroupMembers"];
-
-	private _groupID = -1;
-	private _break = false;
-
-    {
-        _x params ["_oldID", "_newID", "_originalMembers"];
-
-		if (_oldID isEqualTo _ID) then {
-			_groupID = _newID;
-		} else {
-			if (_player in _originalMembers) then {
-				_groupID = _newID;
-			};
-		};
-
-		if (_break) exitWith {};
-    }forEach _groupInfo;
-
-	if !(_break) exitWith {
-		private _group = createGroup west;
-		[_player] join _group;
-		_groupInfo pushBack ["_ID", (groupID _group), _oldGroupMembers];
-		missionNamespace setVariable ["grad_grandPrix_groupInfo", _groupInfo];
-	};
-
-	[_player] join _groupID;
-}] call CBA_fnc_addEventHandler;
-
 Grad_grandPrix_race_drivers = [];
 Grad_grandPrix_plank_jumpers = [];
-
-
-["grad_grandPrix_plank_result", {
-    [] call grad_grandPrix_fnc_plankGroupResult;
-}] call CBA_fnc_addEventHandler;
 
 ["grad_grandPrix_race_driversUp", {
 	params ["_unit"];
@@ -72,17 +34,16 @@ Grad_grandPrix_plank_jumpers = [];
 	if (Grad_grandPrix_race_drivers isEqualTo []) exitWith {};
 
 	Grad_grandPrix_race_drivers params ["_group", "_units"];
-	private _times = missionNamespace getVariable "grad_grandPrix_race_results";
+	private _times = missionNamespace getVariable ["grad_grandPrix_race_results", []];
 	_times pushBack [_unit, _time];
 	missionNamespace setVariable ["grad_grandPrix_race_results", _times];
-
 
 	if (count _units <= 1) then {
 		[{
 			params ["_group"];
 			private _times = missionNamespace getVariable "grad_grandPrix_race_results";
 			private _best = _times select 0;
-			missionNamespace setVariable ["grad_grandPrix_race_results", [], true];
+			missionNamespace setVariable ["grad_grandPrix_race_results", []];
 
 			_best params ["_unit", "_time"];
 
@@ -105,44 +66,48 @@ Grad_grandPrix_plank_jumpers = [];
 	params ["_unit"];
 	
 	if (Grad_grandPrix_plank_jumpers isEqualTo []) then {
-		Grad_grandPrix_plank_jumpers = [group _unit, 1, [_unit]];
+		Grad_grandPrix_plank_jumpers = [group _unit, [_unit]];
 	} else {
-		Grad_grandPrix_plank_jumpers params ["_group", "_count", "_units"];
+		Grad_grandPrix_plank_jumpers params ["_group", "_units"];
 		private _index = _units pushBackUnique _unit;
 
 		if (_index isEqualTo -1) then {
-			Grad_grandPrix_plank_jumpers = [_group, _count +1, _units];
+			Grad_grandPrix_plank_jumpers = [_group, _units];
 		};
 	};
 }] call CBA_fnc_addEventHandler;
 
 ["grad_grandPrix_plank_jumpersDown", {
-	params ["_unit"];
+	params ["_unit", "_height", "_distance"];
 	if (Grad_grandPrix_plank_jumpers isEqualTo []) exitWith {};
 
-	Grad_grandPrix_plank_jumpers params ["_group", "_count", "_units"];
+	Grad_grandPrix_plank_jumpers params ["_group", "_units"];
 
-	if (_count <= 1) then {
+	private _stats = missionNamespace getVariable ["grad_grandPrix_plank_results", []];
+	_stats pushBack [_unit, _height, _distance];
+	missionNamespace setVariable ["grad_grandPrix_plank_results", _stats];
+
+	if (count _units <= 1) then {
 		[{
 			params ["_group"];
-			["grad_grandPrix_plank_result", [], _group] call CBA_fnc_targetEvent;
+			private _stats = missionNamespace getVariable "grad_grandPrix_plank_results";
+			missionNamespace setVariable ["grad_grandPrix_plank_results", []];
 
-			[{
-				params ["_group"];
-				private _best = missionNamespace getVariable ["grad_grandPrix_plank_results", []] select 0;
-				missionNamespace setVariable ["grad_grandPrix_plank_results", [], true];
+			private _best = 1000;
+			{
+				_x params ["_unit", "_pullHeight", "_distance"];
+				private _value = floor(_pullHeight + _distance);
 
-				_best params ["_unit", "_pullHeight", "_distance"];
+				if (_best > _value) then {
+					_best = _value;
+				};
+			}forEach _stats;
 
-				private _time = (floor(_pullHeight*0.1)) + (floor(_distance));
-				private _strafe = [_time, "MM:SS"] call BIS_fnc_secondsToString;
+			private _points = 1000 - _best;
 
-				private _message = format ["%1 Strafzeit hinzugefügt", _strafe];
-				[_message, false] remoteExecCall ["grad_grandPrix_fnc_mortarMessage", group _unit];
-
-				[_group, "plank", _time] call grad_grandPrix_fnc_addTime;
-			}, [_group], 15] call CBA_fnc_waitAndExecute;
-		}, [_group], 15] call CBA_fnc_waitAndExecute;
+			[_group, _points, "Planke des Todes"] call grad_grandPrix_fnc_addPoints;
+			[_stats, _points] remoteExec ["grad_grandPrix_fnc_plankGroupResult", _group];
+		}, [_group], 10] call CBA_fnc_waitAndExecute;
 
 		Grad_grandPrix_plank_jumpers = [];
 	} else {
@@ -150,7 +115,7 @@ Grad_grandPrix_plank_jumpers = [];
 
 		if !(_index isEqualTo -1) then {
 			_units deleteAt _index;
-			Grad_grandPrix_plank_jumpers = [_group, _count -1, _units];
+			Grad_grandPrix_plank_jumpers = [_group, _units];
 		};
 	};
 }] call CBA_fnc_addEventHandler;

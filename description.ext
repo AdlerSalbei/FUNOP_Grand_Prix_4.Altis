@@ -15,7 +15,6 @@ respawnDialog = 0;
 disabledAI = 0;
 allowFunctionsRecompile = 1;
 reviveMode = 0;
-joinUnassigned = 0;
 
 enableDebugConsole = 1;
 
