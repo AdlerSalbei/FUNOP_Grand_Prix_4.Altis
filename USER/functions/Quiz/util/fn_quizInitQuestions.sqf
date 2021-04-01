@@ -6,9 +6,9 @@ private _allQuestions = [
 	["Wie viel DLC gibt es für Arma 3?", 3, [13, 12, 13], ["NUMBER"], ""],
 	["Wie heißt die Hauptstadt auf Tanoa?", 4, ["georgetown"], ["STRING"], ""],
 	["Artillerist D. Rulrich hat in seiner Panzerhaubitze 2000, 50 Schuss 155mm Granaten dabei. Wenn er davon 2/5 verschießt, wie viel Mumpeln bleiben ihm dann übrig?", 5, [30], [10,20,30,40], ""],
-	["Was ist die minimale Zughöhe eines steuerbaren Fallschirms unter ACE3, ohne bei der Landung verletzt zu werden? Fehlermarge: 20%", 6, [68, 0.8*68, 1.2*68], ["NUMBER"], "m"],
+	["Was ist die minimale Zughöhe eines steuerbaren Fallschirms unter ACE3 (mit maximaler Fallgeschwindigkeit), ohne bei der Landung verletzt zu werden? Fehlermarge: 15%", 6, [90, 0.85*90, 1.15*90], ["NUMBER"], "m"],
 	["Wie heißt die Karte, auf der ihr euch gerade befindet?", 7, ["kingdomofregero"], ["STRING"], ""],
-	["Wie viele (öffentliche) Repositories, stehen auf der Github-Seite von Gruppe Adler zur Verfügung? Fehlermarge: 15%", 8, [233, floor(0.85*233), ceil(1.15*233)], ["NUMBER"], ""],
+	["Wie viele (öffentliche) Repositories, stehen auf der Github-Seite von Gruppe Adler zur Verfügung? Fehlermarge: 15%", 8, [234, floor(0.85*234), ceil(1.15*234)], ["NUMBER"], ""],
 	["Wenn ein Feind 'bekämpft' ist, dann wurde er...", 9, ["beschossen"], ["getötet", "neutralisiert", "festgesetzt","beschossen"], ""]
 	// ["eigentlicheFrage", Zahl, ["richtige Antwort(en)"], ["Art der Frage: Antwort als String, Zahl oder MultipleChoice"], "optionale Einheiten der Lösung (z.B. Meter)"]
 ];

@@ -1,4 +1,4 @@
-#define BEST_AVERAGE 75
+#define BEST_AVERAGE 65
 
 params ["_station", "_group"];
 

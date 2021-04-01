@@ -1,0 +1,1 @@
+GRAD_GrandPrix4_Hangar animateSource ["Door_7_sound_source", 1];

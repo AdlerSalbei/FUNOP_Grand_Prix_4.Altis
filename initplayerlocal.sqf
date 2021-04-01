@@ -51,3 +51,17 @@ ace_player addEventHandler ["GetOutMan", {
 
     ace_player allowDamage false;
 }];
+
+
+
+
+
+// result interaction
+private _condition = {
+    player inArea GRAD_GrandPrix_finishArea
+};
+private _statement = {
+    [] spawn GRAD_grandPrix_fnc_showResult;
+};
+private _action = ["show_results","Grand Prix Ergebnisse anzeigen","",_statement,_condition] call ace_interact_menu_fnc_createAction;
+[player, 1, ["ACE_SelfActions"], _action] call ace_interact_menu_fnc_addActionToObject;

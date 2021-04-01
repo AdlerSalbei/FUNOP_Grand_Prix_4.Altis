@@ -46,6 +46,7 @@ class grad_grandPrix
 		class jumpResults {};
 		class plankGroupResult {};
 		class portToCarrier {};
+		class portBack {};
 	};
 	class points {
 		file = "USER\functions\points";
@@ -104,5 +105,10 @@ class grad_grandPrix
 		class quizInitQuestions {};
 		class quizAnswerCountdown {};
 		class endQuiz {};
-	};		
+	};
+
+	class Hangar {
+		file = "USER\functions\Hangar";
+		class openHangar {};
+	};
 };
