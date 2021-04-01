@@ -4,7 +4,7 @@
 #define DIALOG_H (75 * GRID_H)
 #define MARGIN_H (0.5 * GRID_H)
 #define MARGIN_W (0.5 * GRID_W)
-#define GAME_COL_WIDTH 0.2
+#define GAME_COL_WIDTH 0.3
 
 private _allGroups = missionNamespace getVariable ["GRAD_GrandPrix_allContestantGroups", []];
 private _allGroupNames = missionNamespace getVariable ["GRAD_GrandPrix_allContestantGroupNames", []];
