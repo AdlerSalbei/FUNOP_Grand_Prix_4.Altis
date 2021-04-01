@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=842;
+		nextID=866;
 	};
 	class Camera
 	{
-		pos[]={5647.7158,40.652634,5131.1113};
-		dir[]={0.80090529,-0.56275117,0.20462002};
-		up[]={0.5452404,0.82662356,0.13930161};
-		aside[]={0.24753667,1.3204408e-007,-0.96888137};
+		pos[]={1131.7174,308.35309,5157.5151};
+		dir[]={0.96049589,-0.25946814,-0.10064451};
+		up[]={0.25805917,0.9657526,-0.027040293};
+		aside[]={-0.1042146,-3.5017729e-007,-0.99455822};
 	};
 };
 binarizationWanted=0;
@@ -87430,7 +87430,7 @@ class Mission
 			flags=6;
 			class Attributes
 			{
-				init="call{this addEventHandler [""Fired"", { " \n " params [""_unit"", ""_weapon"", ""_muzzle"", ""_mode"", ""_ammo"", ""_magazine"", ""_projectile"", ""_gunner""]; " \n "[{" \n "(_this distance (missionNamespace getVariable [""GRAD_quizUnfortunateContestant"", objNull])) < 5" \n "}, {" \n "missionNamespace setVariable [""GRAD_quiz_Exits_bombExploded"", true, true];" \n "_bomb = createVehicle [""IEDUrbanBig_Remote_Ammo"", _this];" \n "_bomb setDamage 1;" \n "deleteVehicle _this;" \n "(missionNamespace getVariable [""GRAD_quizUnfortunateContestant"", objNull]) setVelocity [random 15, random 15, ((velocity (missionNamespace getVariable [""GRAD_quizUnfortunateContestant"", objNull])) select 2) + (random 10)];" \n "}, _projectile] call CBA_fnc_waitUntilAndExecute;" \n "}];}";
+				init="call{this addEventHandler [""Fired"", { " \n " params [""_unit"", ""_weapon"", ""_muzzle"", ""_mode"", ""_ammo"", ""_magazine"", ""_projectile"", ""_gunner""]; " \n "[{" \n "(_this distance (missionNamespace getVariable [""GRAD_quizUnfortunateContestant"", objNull])) < 6" \n "}, {" \n "missionNamespace setVariable [""GRAD_quiz_Exits_bombExploded"", true, true];" \n "_bomb = createVehicle [""IEDUrbanBig_Remote_Ammo"", _this];" \n "_bomb setDamage 1;" \n "deleteVehicle _this;" \n "[(missionNamespace getVariable [""GRAD_quizUnfortunateContestant"", objNull]), [random 15, random 15, ((velocity (missionNamespace getVariable [""GRAD_quizUnfortunateContestant"", objNull])) select 2) + (random 10)]] remoteExec [""setVelocity"", missionNamespace getVariable [""GRAD_quizUnfortunateContestant"", objNull]];" \n "}, _projectile] call CBA_fnc_waitUntilAndExecute;" \n "}];}";
 				name="GRAD_quiz_VLS";
 				receiveRemoteTargets=1;
 			};
