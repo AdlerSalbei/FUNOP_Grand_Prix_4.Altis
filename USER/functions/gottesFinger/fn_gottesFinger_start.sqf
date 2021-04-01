@@ -41,5 +41,5 @@ _station setVariable [QGVAR(positions), _randomSelectedPositions, true];
 
 [_station, "<t align='center' color='#66AA66' size='2'>Zeit läuft</t>"] call FUNC_CUSTOM(hintGroup);
 
-0 fadeMusic 0.7;
+0 fadeMusic 0.8;
 playMusic "ameno";

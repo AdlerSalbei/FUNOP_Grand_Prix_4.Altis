@@ -30,7 +30,7 @@ private _textRows = ["<t align='center' color='#8F1167' size='2'>Zusammenfassung
 _textRows pushBack "<t align='left' color='#777777' size='0.9'>Distanze:</t>";
 private _punkte = 0;
 {
-	private _punktzahl = (100 - (round _x -1)) max 0; 
+	private _punktzahl = (200 - (round _x -1)) max 0; 
 	_textRows pushBack format ["<t align='left' color='#777777' size='0.9'>%1</t><t align='right' font='EtelkaMonospacePro'>+ %2</t>", _x toFixed 2, _punktzahl];
 	_punkte = _punkte + _punktzahl;
 } forEach _distances;

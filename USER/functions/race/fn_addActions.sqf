@@ -4,7 +4,7 @@ private _action = [
 	"race_action_1", 
 	"Start Race", 
 	"", 
-	{[GRAD_GrandPrix_race_WaterbombArea] call grad_grandPrix_fnc_startRace;},
+	{[GRAD_GrandPrix_racersTrigger] call grad_grandPrix_fnc_startRace;},
 	{true},
 	{}
 ] call ace_interact_menu_fnc_createAction;
