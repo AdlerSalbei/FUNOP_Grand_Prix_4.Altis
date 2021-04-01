@@ -8,6 +8,8 @@ _unit setPos _unitPos;
 [_unit, [0,0, 16]] remoteExec ["setVelocity", _unit];
 // _unit setVelocity [0,0, 16];
 
+sleep 0.5;
+
 waitUntil { ((velocity _unit)#2) <= 0 };
 
 [_unit, {

@@ -4,6 +4,8 @@ params ["_unit"];
 _unit setVelocity [0,0,0];
 _unit setPosATL (getPosATL GRAD_quiz_tribunePosition);
 _unit setDir ((getDir GRAD_quiz_tribune) + 180);
-[{_this switchMove "amovpercmstpsnonwnondnon";}, _unit, 0.1] call CBA_fnc_waitAndExecute;
+[{
+	[_this, "amovpercmstpsnonwnondnon"] remoteExec ["switchMove", _this];
+}, _unit, 0.1] call CBA_fnc_waitAndExecute;
 [_unit, false] remoteExec ["allowDamage", _unit];
 missionNamespace setVariable ["GRAD_quizExitDone", true, true];
