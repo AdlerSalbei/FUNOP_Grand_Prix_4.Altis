@@ -49,7 +49,7 @@ Grad_grandPrix_plank_jumpers = [];
 
 			private _points = [_group, _time, 780, 1000, "Five Planes One Cup"] call grad_grandPrix_fnc_addTime;
 			[_times, _points] remoteExec ["grad_grandPrix_fnc_results", _group];
-		}, [_group], 10] call CBA_fnc_waitAndExecute;
+		}, [_group], 30] call CBA_fnc_waitAndExecute;
 
 		Grad_grandPrix_race_drivers = [];
 	} else {
@@ -107,7 +107,7 @@ Grad_grandPrix_plank_jumpers = [];
 
 			[_group, _points, "Planke des Todes"] call grad_grandPrix_fnc_addPoints;
 			[_stats, _points] remoteExec ["grad_grandPrix_fnc_plankGroupResult", _group];
-		}, [_group], 10] call CBA_fnc_waitAndExecute;
+		}, [_group], 30] call CBA_fnc_waitAndExecute;
 
 		Grad_grandPrix_plank_jumpers = [];
 	} else {
